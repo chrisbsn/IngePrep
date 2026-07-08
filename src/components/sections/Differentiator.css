@@ -1,0 +1,96 @@
+.differentiator {
+  padding: var(--section-padding-y) 0;
+  background: var(--color-ink-900);
+  color: var(--color-cream-100);
+}
+
+.differentiator .section-title__title,
+.differentiator h3 {
+  color: var(--color-white);
+}
+
+.differentiator .section-title__description {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.differentiator .section-title__eyebrow {
+  color: var(--color-mint-400);
+}
+
+.differentiator__comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.differentiator__bubble {
+  border-radius: var(--radius-md);
+  padding: 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.differentiator__bubble--neutral {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.differentiator__bubble--highlight {
+  background: rgba(110, 231, 192, 0.08);
+  border-color: rgba(110, 231, 192, 0.35);
+}
+
+.differentiator__bubble-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.differentiator__bubble--highlight .differentiator__bubble-label {
+  color: var(--color-mint-400);
+}
+
+.differentiator__bubble p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.differentiator__mechanisms {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 1.6rem 1.8rem;
+}
+
+.differentiator__mechanisms-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-white);
+}
+
+.differentiator__mechanisms-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.differentiator__mechanisms-list li {
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 720px) {
+  .differentiator__comparison {
+    grid-template-columns: 1fr;
+  }
+}

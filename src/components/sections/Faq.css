@@ -1,0 +1,8 @@
+.faq {
+  padding: var(--section-padding-y) 0;
+  background: var(--color-cream-100);
+}
+
+.faq__inner {
+  max-width: 760px;
+}

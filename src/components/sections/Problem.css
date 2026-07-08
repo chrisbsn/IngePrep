@@ -1,0 +1,33 @@
+.problem {
+  padding: var(--section-padding-y) 0;
+}
+
+.problem__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.problem__card {
+  background: var(--color-white);
+  border: 1px solid var(--color-cream-200);
+  border-radius: var(--radius-md);
+  padding: 1.8rem;
+}
+
+.problem__card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.problem__card p {
+  color: var(--color-ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .problem__grid {
+    grid-template-columns: 1fr;
+  }
+}

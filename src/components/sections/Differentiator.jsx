@@ -9,7 +9,7 @@ const COMPARISON = [
     tone: "neutral",
   },
   {
-    label: "Correcteur IngeniumPrep",
+    label: "Correcteur IngePrep",
     result:
       "\"Ton hypothèse à l'étape 2 suppose que les droites sont concourantes — ce n'est pas donné par l'énoncé. C'est ce qui invalide le théorème appliqué à l'étape 3.\"",
     tone: "highlight",

@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const STORAGE_KEY = "ingeniumprep_waitlist"
+const STORAGE_KEY = "ingeprep_waitlist"
 
 function encodeFormData(data) {
   return Object.keys(data)

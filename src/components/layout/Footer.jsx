@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="footer__brand">
           <span className="footer__logo">
             <span className="header__logo-mark">IP</span>
-            IngeniumPrep
+            IngePrep
           </span>
           <p className="footer__tagline">
             La préparation à l'ESA qui diagnostique ton raisonnement, pas seulement tes résultats.
@@ -30,16 +30,16 @@ export default function Footer() {
         <div className="footer__col">
           <h3>Contact</h3>
           <ul>
-            <li><a href="mailto:contact@ingeniumprep.be">contact@ingeniumprep.be</a></li>
+            <li><a href="mailto:contact@ingeprep.be">contact@ingeprep.be</a></li>
           </ul>
         </div>
       </Container>
 
       <Container>
         <div className="footer__bottom">
-          <p>© {year} IngeniumPrep. Projet en préparation — lancement prévu septembre 2026.</p>
+          <p>© {year} IngePrep. Projet en préparation — lancement prévu septembre 2026.</p>
           <p className="footer__disclaimer">
-            IngeniumPrep est un projet indépendant, non affilié à l'UCLouvain, l'ULB, l'ULiège, l'UMons ni au CESAM.
+            IngePrep est un projet indépendant, non affilié à l'UCLouvain, l'ULB, l'ULiège, l'UMons ni au CESAM.
           </p>
         </div>
       </Container>

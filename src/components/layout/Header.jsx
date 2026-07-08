@@ -16,7 +16,7 @@ export default function Header() {
       <Container className="header__inner">
         <a href="#top" className="header__logo">
           <span className="header__logo-mark">IP</span>
-          IngeniumPrep
+          IngePrep
         </a>
         <nav className="header__nav" aria-label="Navigation principale">
           <ul>

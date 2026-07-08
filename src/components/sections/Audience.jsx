@@ -10,7 +10,7 @@ export default function Audience() {
         <SectionTitle
           eyebrow="Pour qui"
           title="Pensé pour les candidats à l'ESA en Belgique francophone"
-          description="Que tu sois encore au secondaire ou en année de préparation dédiée, IngeniumPrep s'adresse à toi si tu vises une des quatre écoles polytechniques."
+          description="Que tu sois encore au secondaire ou en année de préparation dédiée, IngePrep s'adresse à toi si tu vises une des quatre écoles polytechniques."
         />
 
         <div className="audience__profiles">

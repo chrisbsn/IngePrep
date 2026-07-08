@@ -12,7 +12,7 @@ export default function Hero() {
             Prépare l'ESA avec un feedback qui comprend <span className="hero__title-accent">pourquoi</span> tu te trompes.
           </h1>
           <p className="hero__subtitle">
-            IngeniumPrep ne se contente pas de vérifier ta réponse finale. Notre correcteur IA analyse ton
+            IngePrep ne se contente pas de vérifier ta réponse finale. Notre correcteur IA analyse ton
             raisonnement étape par étape et identifie le mécanisme précis qui te fait perdre des points —
             pour que tu t'entraînes sur ce qui compte vraiment.
           </p>

@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const STORAGE_KEY = "ingeprep_waitlist"
+const STORAGE_KEY = "capinge_waitlist"
 
 function encodeFormData(data) {
   return Object.keys(data)
@@ -29,7 +29,7 @@ export function useWaitlist() {
       })
       saveLocally(entry)
       setStatus("success")
-    } catch (error) {
+    } catch {
       saveLocally(entry)
       setStatus("success")
     }

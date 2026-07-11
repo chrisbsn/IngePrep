@@ -18,7 +18,11 @@ export default function Accordion({ items }) {
               <span>{item.question}</span>
               <span className="accordion-item__icon" aria-hidden="true">{isOpen ? "−" : "+"}</span>
             </button>
-            {isOpen && <p className="accordion-item__content">{item.answer}</p>}
+            <div className="accordion-item__panel">
+              <div className="accordion-item__panel-inner">
+                <p className="accordion-item__content">{item.answer}</p>
+              </div>
+            </div>
           </div>
         )
       })}

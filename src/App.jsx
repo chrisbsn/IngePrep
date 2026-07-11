@@ -8,8 +8,11 @@ import Audience from "./components/sections/Audience"
 import Pricing from "./components/sections/Pricing"
 import Faq from "./components/sections/Faq"
 import WaitlistSection from "./components/sections/WaitlistSection"
+import { useSmoothAnchorScroll } from "./hooks/useSmoothAnchorScroll"
 
 export default function App() {
+  useSmoothAnchorScroll()
+
   return (
     <>
       <Header />

@@ -1,4 +1,5 @@
 import Container from "../ui/Container"
+import Logo from "../ui/Logo"
 import "./Footer.css"
 
 export default function Footer() {
@@ -9,9 +10,10 @@ export default function Footer() {
       <Container className="footer__inner">
         <div className="footer__brand">
           <span className="footer__logo">
-            <span className="header__logo-mark">IP</span>
-            IngePrep
+            <Logo size={30} />
+            Cap Ingé
           </span>
+          <span className="footer__eyebrow">Cap sur Poly</span>
           <p className="footer__tagline">
             La préparation à l'ESA qui diagnostique ton raisonnement, pas seulement tes résultats.
           </p>
@@ -30,16 +32,16 @@ export default function Footer() {
         <div className="footer__col">
           <h3>Contact</h3>
           <ul>
-            <li><a href="mailto:contact@ingeprep.be">contact@ingeprep.be</a></li>
+            <li><a href="mailto:contact@capinge.be">contact@capinge.be</a></li>
           </ul>
         </div>
       </Container>
 
       <Container>
         <div className="footer__bottom">
-          <p>© {year} IngePrep. Projet en préparation — lancement prévu septembre 2026.</p>
+          <p>© {year} Cap Ingé. Projet en préparation — lancement prévu septembre 2026.</p>
           <p className="footer__disclaimer">
-            IngePrep est un projet indépendant, non affilié à l'UCLouvain, l'ULB, l'ULiège, l'UMons ni au CESAM.
+            Cap Ingé est un projet indépendant, non affilié à l'UCLouvain, l'ULB, l'ULiège, l'UMons ni au CESAM.
           </p>
         </div>
       </Container>

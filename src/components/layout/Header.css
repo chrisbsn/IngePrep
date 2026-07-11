@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(250, 247, 241, 0.85);
+  background: rgba(250, 251, 253, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-cream-200);
 }
@@ -26,18 +26,6 @@
   color: var(--color-ink-900);
   text-decoration: none;
   flex-shrink: 0;
-}
-
-.header__logo-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.1rem;
-  height: 2.1rem;
-  border-radius: 8px;
-  background: var(--color-ink-800);
-  color: var(--color-mint-400);
-  font-size: 0.85rem;
 }
 
 .header__nav {
@@ -67,9 +55,89 @@
   text-align: center;
 }
 
+.header__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.header__toggle span {
+  display: block;
+  width: 1.4rem;
+  height: 2px;
+  background: var(--color-ink-800);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header__toggle--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header__toggle--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.header__toggle--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.header__mobile-panel {
+  display: none;
+}
+
 @media (max-width: 900px) {
-  .header__nav {
+  .header__nav,
+  .header__cta {
     display: none;
+  }
+
+  .header__toggle {
+    display: flex;
+  }
+
+  .header__mobile-panel {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    background: var(--color-cream-050);
+    border-bottom: 1px solid var(--color-cream-200);
+    transition: max-height 0.25s ease;
+  }
+
+  .header__mobile-panel--open {
+    max-height: 28rem;
+  }
+
+  .header__mobile-panel nav ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1.5rem 0;
+  }
+
+  .header__mobile-panel nav a {
+    display: block;
+    padding: 0.9rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-ink-800);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-cream-200);
+  }
+
+  .header__mobile-cta {
+    display: flex;
+    width: calc(100% - 3rem);
+    margin: 1.25rem auto 1.5rem;
   }
 }
 
@@ -80,18 +148,6 @@
 
   .header__logo {
     font-size: 0.95rem;
-  }
-
-  .header__logo-mark {
-    width: 1.8rem;
-    height: 1.8rem;
-    font-size: 0.72rem;
-  }
-
-  .header__cta {
-    padding: 0.55rem 0.8rem;
-    font-size: 0.76rem;
-    white-space: normal;
-    line-height: 1.25;
+    gap: 0.45rem;
   }
 }

@@ -1,21 +1,24 @@
 :root {
-  /* Couleurs de marque */
-  --color-ink-900: #0c1526;
-  --color-ink-800: #12213d;
-  --color-ink-700: #1b2f52;
-  --color-ink-600: #2a4270;
+  /* Couleurs de marque — identité "Cap Ingé" */
+  --color-ink-900: #0b0f19;
+  --color-ink-800: #131b2e;
+  --color-ink-700: #1e2a45;
+  --color-ink-600: #2e3f63;
 
-  --color-cream-050: #faf7f1;
-  --color-cream-100: #f3ede1;
-  --color-cream-200: #e9e0cf;
+  --color-cream-050: #fafbfd;
+  --color-cream-100: #f2f4f8;
+  --color-cream-200: #e3e7ee;
 
-  --color-coral-500: #ff6b4a;
-  --color-coral-600: #f0562f;
+  --color-coral-500: #2f5eff;
+  --color-coral-600: #1e45e0;
   --color-mint-400: #6ee7c0;
   --color-mint-600: #2fae8c;
 
   --color-white: #ffffff;
-  --color-ink-muted: #5c6a84;
+  --color-ink-muted: #667085;
+
+  /* État sémantique (erreur/succès dans les démos produit, indépendant de la couleur de marque) */
+  --color-error-500: #ef4444;
 
   /* Typo */
   --font-display: "Space Grotesk", "Inter", sans-serif;
@@ -25,8 +28,10 @@
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
-  --shadow-card: 0 8px 30px rgba(12, 21, 38, 0.08);
-  --shadow-card-hover: 0 14px 40px rgba(12, 21, 38, 0.14);
+  --shadow-card: 0 8px 30px rgba(11, 15, 25, 0.08);
+  --shadow-card-hover: 0 14px 40px rgba(11, 15, 25, 0.14);
+  --glow-coral: rgba(47, 94, 255, 0.28);
+  --glow-mint: rgba(110, 231, 192, 0.28);
 
   /* Layout */
   --max-width: 1140px;

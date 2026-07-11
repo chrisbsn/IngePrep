@@ -1,5 +1,6 @@
 import Container from "../ui/Container"
 import SectionTitle from "../ui/SectionTitle"
+import Reveal from "../ui/Reveal"
 import "./Problem.css"
 
 const POINTS = [
@@ -30,11 +31,11 @@ export default function Problem() {
           description="La plupart des outils de préparation valident une réponse. Peu t'expliquent pourquoi ton raisonnement a cassé — et c'est pourtant l'information qui change vraiment ta progression."
         />
         <div className="problem__grid">
-          {POINTS.map((point) => (
-            <div className="problem__card" key={point.title}>
+          {POINTS.map((point, index) => (
+            <Reveal as="div" className="problem__card" delay={index * 100} key={point.title}>
               <h3>{point.title}</h3>
               <p>{point.description}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Container>

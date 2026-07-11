@@ -1,7 +1,28 @@
 .differentiator {
+  position: relative;
   padding: var(--section-padding-y) 0;
   background: var(--color-ink-900);
   color: var(--color-cream-100);
+  overflow: hidden;
+}
+
+.differentiator__blob {
+  position: absolute;
+  top: -180px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 640px;
+  height: 420px;
+  background: radial-gradient(circle, var(--color-mint-400) 0%, transparent 70%);
+  opacity: 0.16;
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.differentiator__inner {
+  position: relative;
+  z-index: 1;
 }
 
 .differentiator .section-title__title,
@@ -58,6 +79,28 @@
   font-size: 1rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
+}
+
+.differentiator__cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  background: var(--color-mint-400);
+  animation: differentiator-cursor-blink 1s step-end infinite;
+}
+
+@keyframes differentiator-cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .differentiator__cursor {
+    display: none;
+  }
 }
 
 .differentiator__mechanisms {

@@ -11,6 +11,12 @@
   padding: 2.5rem;
   box-shadow: var(--shadow-card);
   text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pricing__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .pricing__price {

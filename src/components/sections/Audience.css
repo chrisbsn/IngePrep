@@ -15,6 +15,13 @@
   border-radius: var(--radius-md);
   padding: 1.8rem;
   border: 1px solid var(--color-cream-200);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.audience__profile:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-coral-500);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .audience__profile h3 {
@@ -43,6 +50,12 @@
   padding: 1.3rem 1rem;
   background: var(--color-ink-800);
   border-radius: var(--radius-md);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.audience__school:hover {
+  transform: translateY(-3px);
+  background: var(--color-ink-700);
 }
 
 .audience__school-code {

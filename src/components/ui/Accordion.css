@@ -46,6 +46,21 @@
   color: var(--color-coral-600);
 }
 
+.accordion-item__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.accordion-item--open .accordion-item__panel {
+  grid-template-rows: 1fr;
+}
+
+.accordion-item__panel-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
 .accordion-item__content {
   padding-bottom: 1.3rem;
   color: var(--color-ink-muted);

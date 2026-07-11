@@ -24,8 +24,19 @@
   color: var(--color-white);
 }
 
+.footer__eyebrow {
+  display: block;
+  margin-top: 0.9rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-mint-400);
+}
+
 .footer__tagline {
-  margin-top: 1rem;
+  margin-top: 0.6rem;
   color: rgba(255, 255, 255, 0.6);
   max-width: 320px;
   font-size: 0.95rem;

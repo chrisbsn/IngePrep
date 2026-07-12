@@ -6,8 +6,10 @@ import Differentiator from "./components/sections/Differentiator"
 import HowItWorks from "./components/sections/HowItWorks"
 import Audience from "./components/sections/Audience"
 import Pricing from "./components/sections/Pricing"
+import Checkout from "./components/sections/Checkout"
 import Faq from "./components/sections/Faq"
 import WaitlistSection from "./components/sections/WaitlistSection"
+import CheckoutBanner from "./components/ui/CheckoutBanner"
 import { useSmoothAnchorScroll } from "./hooks/useSmoothAnchorScroll"
 
 export default function App() {
@@ -15,6 +17,7 @@ export default function App() {
 
   return (
     <>
+      <CheckoutBanner />
       <Header />
       <main>
         <Hero />
@@ -23,6 +26,7 @@ export default function App() {
         <HowItWorks />
         <Audience />
         <Pricing />
+        <Checkout />
         <Faq />
         <WaitlistSection />
       </main>

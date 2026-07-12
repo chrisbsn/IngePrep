@@ -4,10 +4,10 @@ import reactHooks from "eslint-plugin-react-hooks"
 import reactRefresh from "eslint-plugin-react-refresh"
 
 export default [
-  { ignores: ["dist"] },
+  { ignores: ["dist", ".netlify"] },
   {
     files: ["**/*.{js,jsx}"],
-    ignores: ["vite.config.js"],
+    ignores: ["vite.config.js", "netlify/functions/**"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -29,7 +29,7 @@ export default [
     },
   },
   {
-    files: ["vite.config.js"],
+    files: ["vite.config.js", "netlify/functions/**/*.js"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",

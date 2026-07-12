@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Container from "../ui/Container"
 import SectionTitle from "../ui/SectionTitle"
 import Reveal from "../ui/Reveal"
@@ -61,6 +62,12 @@ export default function Differentiator() {
             ))}
           </ul>
         </Reveal>
+
+        <div className="differentiator__cta">
+          <Link to="/app" className="btn btn--primary btn--md">
+            Essayer un exercice gratuit
+          </Link>
+        </div>
       </Container>
     </section>
   )

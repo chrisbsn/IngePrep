@@ -97,6 +97,12 @@
   }
 }
 
+.differentiator__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .differentiator__cursor {
     display: none;

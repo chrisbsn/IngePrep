@@ -7,7 +7,7 @@ export default [
   { ignores: ["dist", ".netlify"] },
   {
     files: ["**/*.{js,jsx}"],
-    ignores: ["vite.config.js", "netlify/functions/**"],
+    ignores: ["vite.config.js", "netlify/functions/**", "test-correcteur.js"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -29,7 +29,7 @@ export default [
     },
   },
   {
-    files: ["vite.config.js", "netlify/functions/**/*.js"],
+    files: ["vite.config.js", "netlify/functions/**/*.js", "test-correcteur.js"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",

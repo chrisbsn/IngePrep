@@ -1,0 +1,118 @@
+.app-shell {
+  min-height: 100vh;
+  background: #eef1ff;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.75rem;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-cream-200);
+}
+
+.app-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-ink-900);
+  text-decoration: none;
+}
+
+.app-header__home-link {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.app-header__home-link:hover {
+  color: var(--color-coral-600);
+}
+
+.app-home {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  text-align: center;
+}
+
+.app-home__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  color: var(--color-ink-900);
+  margin-bottom: 0.6rem;
+}
+
+.app-home__subtitle {
+  color: var(--color-ink-muted);
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+}
+
+.app-home__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.app-home__card {
+  position: relative;
+  text-align: left;
+  background: var(--color-white);
+  border: none;
+  border-radius: 20px;
+  padding: 1.75rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+.app-home__card:hover:not(:disabled) {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.app-home__card h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--color-ink-900);
+  margin-bottom: 0.5rem;
+}
+
+.app-home__card p {
+  color: var(--color-ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.app-home__card--disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.app-home__badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--color-cream-200);
+  color: var(--color-ink-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+}
+
+@media (max-width: 640px) {
+  .app-home__grid {
+    grid-template-columns: 1fr;
+  }
+}

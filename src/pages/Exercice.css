@@ -1,0 +1,229 @@
+.exercice-shell {
+  min-height: 100vh;
+  background: #eef1ff;
+  display: flex;
+  flex-direction: column;
+}
+
+.exercice-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.75rem;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-cream-200);
+}
+
+.exercice-header__back {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.exercice-header__back:hover {
+  color: var(--color-coral-600);
+}
+
+.exercice-header__matiere {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-coral-600);
+}
+
+.exercice-main {
+  flex: 1;
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.exercice-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.exercice-badge {
+  display: inline-block;
+  background: var(--color-white);
+  border: 1px solid var(--color-cream-200);
+  color: var(--color-ink-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+}
+
+.exercice-stars {
+  display: flex;
+  gap: 0.15rem;
+}
+
+.exercice-star {
+  color: var(--color-cream-200);
+  font-size: 1.1rem;
+}
+
+.exercice-star--filled {
+  color: var(--color-coral-500);
+}
+
+.exercice-enonce {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+  color: var(--color-ink-900);
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 2.5rem;
+}
+
+.exercice-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.exercice-textarea {
+  width: 100%;
+  padding: 1.1rem 1.25rem;
+  border-radius: 18px;
+  border: 2px solid var(--color-cream-200);
+  background: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-ink-900);
+  resize: vertical;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.exercice-textarea:focus {
+  outline: none;
+  border-color: var(--color-coral-500);
+  box-shadow: 0 0 0 4px var(--glow-coral);
+}
+
+.exercice-textarea:disabled {
+  background: var(--color-cream-100);
+  color: var(--color-ink-muted);
+}
+
+.exercice-submit {
+  align-self: center;
+  min-width: 260px;
+}
+
+.exercice-error {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--color-error-500);
+  font-size: 0.92rem;
+}
+
+.exercice-feedback {
+  margin-top: 2rem;
+  background: var(--color-white);
+  border-radius: 22px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-card);
+  animation: exercice-feedback-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes exercice-feedback-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.exercice-feedback--correct {
+  border: 2px solid var(--color-mint-400);
+}
+
+.exercice-feedback--incorrect {
+  border: 2px solid rgba(239, 68, 68, 0.35);
+}
+
+.exercice-feedback__verdict {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-ink-900);
+  margin-bottom: 0.75rem;
+}
+
+.exercice-feedback__type {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.exercice-feedback__type--erreur_conceptuelle {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+}
+
+.exercice-feedback__type--erreur_methodologique {
+  background: rgba(245, 158, 11, 0.14);
+  color: #b45309;
+}
+
+.exercice-feedback__type--erreur_de_calcul {
+  background: rgba(139, 92, 246, 0.14);
+  color: #6d28d9;
+}
+
+.exercice-feedback__type--erreur_denonce {
+  background: rgba(47, 94, 255, 0.12);
+  color: var(--color-coral-600);
+}
+
+.exercice-feedback__box {
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: 0.9rem;
+}
+
+.exercice-feedback__box--positive {
+  background: rgba(110, 231, 192, 0.15);
+  color: #0f5c46;
+}
+
+.exercice-feedback__box--neutral {
+  background: var(--color-cream-100);
+  color: var(--color-ink-700);
+}
+
+.exercice-feedback__actions {
+  display: flex;
+  gap: 0.9rem;
+  justify-content: center;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .exercice-submit {
+    width: 100%;
+    min-width: 0;
+  }
+}

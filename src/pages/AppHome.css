@@ -23,6 +23,12 @@
   text-decoration: none;
 }
 
+.app-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
 .app-header__home-link {
   font-size: 0.92rem;
   font-weight: 600;
@@ -115,4 +121,95 @@
   .app-home__grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* --- Navigation programme (matières / chapitres) --- */
+
+.app-home--programme {
+  max-width: 760px;
+  text-align: left;
+}
+
+.app-home--programme .app-home__title,
+.app-home--programme .app-home__subtitle {
+  text-align: center;
+}
+
+.app-home__matieres {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.app-home__matiere {
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  padding: 1.75rem;
+}
+
+.app-home__matiere-head h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-ink-900);
+  margin-bottom: 0.3rem;
+}
+
+.app-home__matiere-head p {
+  color: var(--color-ink-muted);
+  font-size: 0.92rem;
+  margin-bottom: 1.2rem;
+}
+
+.app-home__chapitres {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.app-home__chapitre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--color-cream-200);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.app-home__chapitre:hover {
+  border-color: var(--color-coral-500);
+  transform: translateX(2px);
+}
+
+.app-home__chapitre-titre {
+  font-weight: 600;
+  font-size: 0.97rem;
+  color: var(--color-ink-900);
+}
+
+.app-home__chapitre--a-venir .app-home__chapitre-titre {
+  color: var(--color-ink-muted);
+}
+
+.app-home__chapitre-badge {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: var(--color-cream-200);
+  color: var(--color-ink-muted);
+}
+
+.app-home__chapitre-badge--pilote {
+  background: rgba(110, 231, 192, 0.2);
+  color: var(--color-mint-600);
 }

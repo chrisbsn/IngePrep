@@ -1,42 +1,11 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import Logo from "../components/ui/Logo"
+import { programme } from "../data/programme"
+import { useCompteSimule } from "../hooks/useCompteSimule"
 import "./AppHome.css"
 
-const MATIERES = [
-  {
-    id: "algebre",
-    label: "Algèbre",
-    description: "Équations, inéquations, systèmes, valeurs absolues.",
-    active: true,
-  },
-  {
-    id: "analyse",
-    label: "Analyse",
-    description: "Fonctions, dérivées, limites, primitives.",
-    active: false,
-  },
-  {
-    id: "geometrie",
-    label: "Géométrie",
-    description: "Figures planes, solides, vecteurs.",
-    active: false,
-  },
-  {
-    id: "trigonometrie",
-    label: "Trigonométrie",
-    description: "Cercle trigonométrique, équations, identités.",
-    active: false,
-  },
-]
-
 export default function AppHome() {
-  const navigate = useNavigate()
-
-  function handleSelect(matiere) {
-    if (matiere.id === "algebre") {
-      navigate("/app/exercice/1")
-    }
-  }
+  const { connecte } = useCompteSimule()
 
   return (
     <div className="app-shell">
@@ -45,30 +14,54 @@ export default function AppHome() {
           <Logo size={28} />
           IngePrep
         </Link>
-        <Link to="/" className="app-header__home-link">
-          Accueil
-        </Link>
+        <nav className="app-header__nav">
+          <Link
+            to={connecte ? "/tableau-de-bord" : "/connexion"}
+            className="app-header__home-link"
+          >
+            {connecte ? "Mon tableau de bord" : "Se connecter"}
+          </Link>
+          <Link to="/" className="app-header__home-link">
+            Accueil
+          </Link>
+        </nav>
       </header>
 
-      <main className="app-home">
-        <h1 className="app-home__title">Choisis ta matière</h1>
+      <main className="app-home app-home--programme">
+        <h1 className="app-home__title">Le programme de l'examen</h1>
         <p className="app-home__subtitle">
-          Commence par l'algèbre — les autres matières arrivent bientôt.
+          Les quatre matières officielles de l'examen spécial d'admission, chapitre par chapitre.
         </p>
 
-        <div className="app-home__grid">
-          {MATIERES.map((matiere) => (
-            <button
-              key={matiere.id}
-              type="button"
-              className={`app-home__card ${matiere.active ? "" : "app-home__card--disabled"}`}
-              onClick={() => handleSelect(matiere)}
-              disabled={!matiere.active}
-            >
-              {!matiere.active && <span className="app-home__badge">Bientôt</span>}
-              <h2>{matiere.label}</h2>
-              <p>{matiere.description}</p>
-            </button>
+        <div className="app-home__matieres">
+          {programme.map((matiere) => (
+            <section className="app-home__matiere" key={matiere.id}>
+              <div className="app-home__matiere-head">
+                <h2>{matiere.label}</h2>
+                <p>{matiere.description}</p>
+              </div>
+              <ul className="app-home__chapitres">
+                {matiere.chapitres.map((chapitre) => (
+                  <li key={chapitre.slug}>
+                    <Link
+                      to={`/app/chapitre/${chapitre.slug}`}
+                      className={`app-home__chapitre ${
+                        chapitre.statut === "a-venir" ? "app-home__chapitre--a-venir" : ""
+                      }`}
+                    >
+                      <span className="app-home__chapitre-titre">{chapitre.titre}</span>
+                      {chapitre.statut === "pilote" ? (
+                        <span className="app-home__chapitre-badge app-home__chapitre-badge--pilote">
+                          Disponible — brouillon
+                        </span>
+                      ) : (
+                        <span className="app-home__chapitre-badge">À venir</span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
           ))}
         </div>
       </main>

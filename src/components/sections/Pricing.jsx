@@ -44,7 +44,9 @@ export default function Pricing() {
           <div className="pricing__price">
             <span className="pricing__price-anchor" aria-hidden="true">129 €</span>
             <span className="pricing__price-value">79 €</span>
-            <span className="pricing__price-note">Tarif de lancement — accès jusqu'à ton examen</span>
+            <span className="pricing__price-note">
+              Prix de lancement pour les 100 premiers utilisateurs — 129 € ensuite
+            </span>
           </div>
           <ul className="pricing__included">
             {INCLUDED.map((item) => (

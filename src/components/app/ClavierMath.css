@@ -1,0 +1,144 @@
+.clavier-math {
+  background: #eceef3;
+  border: 1px solid var(--color-cream-200);
+  border-radius: 12px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  user-select: none;
+}
+
+/* --- Onglets (123 / f(x) / ABC / #&¬) --- */
+
+.clavier-math__onglets {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0 0.15rem;
+}
+
+.clavier-math__onglet {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink-900);
+  background: none;
+  border: none;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.clavier-math__onglet:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.clavier-math__onglet--actif {
+  background: #d9c9fb;
+  color: #4c1d95;
+}
+
+.clavier-math__onglet:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Grilles de touches --- */
+
+.clavier-math__blocs {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+.clavier-math__bloc {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--colonnes, 4), minmax(0, 1fr));
+  gap: 0.3rem;
+}
+
+.clavier-math__abc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.clavier-math__ligne {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.clavier-math__ligne .clavier-math__touche {
+  flex: 1;
+  min-width: 0;
+}
+
+/* --- Touches --- */
+
+.clavier-math__touche {
+  height: 2.5rem;
+  padding: 0 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-ink-900);
+  background: var(--color-white);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(11, 15, 25, 0.12);
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.08s ease;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.clavier-math__touche:hover:not(:disabled) {
+  background: #f5f6fa;
+}
+
+.clavier-math__touche:active:not(:disabled) {
+  transform: translateY(1px);
+  background: #e8eaf0;
+}
+
+.clavier-math__touche--speciale {
+  background: #c9ccd6;
+  font-size: 1rem;
+}
+
+.clavier-math__touche--speciale:hover:not(:disabled) {
+  background: #bcc0cb;
+}
+
+.clavier-math__touche--espace {
+  flex: 4 !important;
+}
+
+.clavier-math__touche--active {
+  background: #d9c9fb;
+  color: #4c1d95;
+}
+
+.clavier-math__touche:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 620px) {
+  .clavier-math__blocs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .clavier-math__bloc {
+    width: 100%;
+  }
+
+  .clavier-math__touche {
+    height: 2.7rem;
+    font-size: 0.9rem;
+  }
+}

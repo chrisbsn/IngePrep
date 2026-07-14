@@ -1,0 +1,585 @@
+.chapitre-main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.chapitre-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chapitre-header-matiere {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-coral-500);
+  background: rgba(47, 94, 255, 0.08);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+
+.chapitre-fil {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.chapitre-fil a {
+  color: var(--color-ink-muted);
+  text-decoration: none;
+}
+
+.chapitre-fil a:hover {
+  color: var(--color-coral-600);
+}
+
+.chapitre-fil strong {
+  color: var(--color-ink-900);
+}
+
+.chapitre-titre {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--color-ink-900);
+  margin-bottom: 1.25rem;
+}
+
+/* --- Bannière contenu provisoire --- */
+
+.chapitre-banniere-provisoire {
+  background: #fff7e6;
+  border: 1px solid #f0c36d;
+  border-left: 4px solid #e8a020;
+  color: #7a5a12;
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 2rem;
+}
+
+/* --- Onglets (gabarit commun à tous les chapitres) --- */
+
+.chapitre-onglets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  border-bottom: 1px solid var(--color-cream-200);
+  margin-bottom: 1.75rem;
+}
+
+.chapitre-onglet {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.8rem 1rem;
+  margin-bottom: -1px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.chapitre-onglet:hover {
+  color: var(--color-ink-900);
+}
+
+.chapitre-onglet--actif {
+  color: var(--color-coral-600);
+  border-bottom-color: var(--color-coral-500);
+}
+
+.chapitre-onglet-badge {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-muted);
+  background: var(--color-cream-200);
+  border-radius: 999px;
+  padding: 0.15rem 0.45rem;
+}
+
+.chapitre-onglet-a-venir {
+  background: var(--color-white);
+  border: 1px dashed var(--color-cream-200);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.chapitre-onglet-a-venir p {
+  color: var(--color-ink-muted);
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* --- Théorie --- */
+
+.chapitre-theorie {
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.chapitre-theorie h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-ink-900);
+  margin-bottom: 0.7rem;
+}
+
+.chapitre-theorie-intro {
+  color: var(--color-ink-muted);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.chapitre-theorie-blocs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.chapitre-theorie-bloc {
+  border: 1px solid var(--color-cream-200);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+}
+
+.chapitre-theorie-bloc h3 {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  color: var(--color-ink-900);
+  margin-bottom: 0.4rem;
+}
+
+.chapitre-theorie-bloc p {
+  color: var(--color-ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+/* --- Compteur d'essais --- */
+
+.chapitre-essais {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background: rgba(47, 94, 255, 0.06);
+  border: 1px solid rgba(47, 94, 255, 0.2);
+  border-radius: 12px;
+  padding: 0.8rem 1.1rem;
+  font-size: 0.92rem;
+  color: var(--color-ink-900);
+  margin-bottom: 1.5rem;
+}
+
+.chapitre-essais-note {
+  font-size: 0.78rem;
+  color: var(--color-ink-muted);
+}
+
+/* --- Outil de test interne (dev) --- */
+
+.chapitre-devtool {
+  background: #f3e8ff;
+  border: 2px dashed #9333ea;
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.chapitre-devtool-titre {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #6b21a8;
+  margin-bottom: 0.4rem;
+}
+
+.chapitre-devtool-texte {
+  font-size: 0.85rem;
+  color: #6b21a8;
+  margin-bottom: 0.8rem;
+}
+
+.chapitre-devtool-scenarios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.chapitre-devtool-scenario {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b21a8;
+  background: var(--color-white);
+  border: 1px solid #d8b4fe;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+
+.chapitre-devtool-scenario--actif {
+  background: #9333ea;
+  border-color: #9333ea;
+  color: var(--color-white);
+}
+
+.chapitre-devtool-scenario input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chapitre-devtool-reset {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b21a8;
+  background: none;
+  border: 1px solid #d8b4fe;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+.chapitre-devtool-reset:hover {
+  background: #ede9fe;
+}
+
+/* --- Bandeau mécanisme récurrent --- */
+
+.chapitre-mecanisme {
+  background: var(--color-ink-900);
+  color: var(--color-cream-100);
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.chapitre-mecanisme-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-mint-400);
+  border: 1px solid rgba(110, 231, 192, 0.4);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  margin-bottom: 0.6rem;
+}
+
+.chapitre-mecanisme p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- Exercices --- */
+
+.chapitre-exercices h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-ink-900);
+  margin-bottom: 0.5rem;
+}
+
+.chapitre-exercices-intro {
+  color: var(--color-ink-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.chapitre-exercice {
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  padding: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.chapitre-exercice-head {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+
+.chapitre-exercice-numero {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-coral-500);
+  background: rgba(47, 94, 255, 0.08);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+
+.chapitre-exercice-origine {
+  font-size: 0.78rem;
+  color: var(--color-ink-muted);
+}
+
+.chapitre-exercice-etoiles {
+  margin-left: auto;
+  color: #f2b01e;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+}
+
+.chapitre-exercice-titre {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-ink-900);
+  margin-bottom: 0.4rem;
+}
+
+.chapitre-exercice-enonce {
+  color: var(--color-ink-900);
+  font-size: 1rem;
+  line-height: 1.6;
+  background: var(--color-cream-050);
+  border: 1px solid var(--color-cream-200);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+/* --- Soumission : une zone de rédaction libre et unique --- */
+
+.chapitre-soumission {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.chapitre-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.chapitre-zone-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink-900);
+}
+
+.chapitre-zone-note {
+  font-size: 0.72rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--color-ink-muted);
+}
+
+.chapitre-zone textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-ink-900);
+  background: var(--color-cream-050);
+  border: 1px solid var(--color-cream-200);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  resize: vertical;
+}
+
+.chapitre-zone textarea:focus {
+  outline: 2px solid var(--color-coral-500);
+  outline-offset: 1px;
+}
+
+.chapitre-zone textarea:disabled {
+  opacity: 0.6;
+}
+
+/* Zone de rédaction principale : lignes façon copie */
+.chapitre-zone-libre {
+  min-height: 12rem;
+}
+
+.chapitre-zone--finale textarea {
+  background: var(--color-white);
+  border-color: var(--color-coral-500);
+}
+
+/* Clavier mathématique partagé, en bas du formulaire */
+.chapitre-clavier {
+  position: sticky;
+  bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: var(--color-white);
+  border-radius: 14px;
+  padding-top: 0.35rem;
+}
+
+.chapitre-clavier-cible {
+  font-size: 0.78rem;
+  color: var(--color-ink-muted);
+}
+
+.chapitre-clavier-cible strong {
+  color: var(--color-coral-600);
+}
+
+.chapitre-soumission > button {
+  align-self: flex-start;
+}
+
+/* --- Diagnostic --- */
+
+.chapitre-diagnostic {
+  border-radius: 12px;
+  border: 1px solid var(--color-cream-200);
+  padding: 1.1rem 1.3rem;
+}
+
+.chapitre-diagnostic--correct {
+  background: rgba(110, 231, 192, 0.1);
+  border-color: rgba(47, 174, 140, 0.4);
+}
+
+.chapitre-diagnostic--erreur {
+  background: rgba(239, 68, 68, 0.06);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.chapitre-diagnostic-verdict {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-ink-900);
+  margin-bottom: 0.5rem;
+}
+
+.chapitre-diagnostic-mecanisme {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-error-500);
+  background: rgba(239, 68, 68, 0.08);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  margin-bottom: 0.6rem;
+}
+
+.chapitre-diagnostic-texte {
+  color: var(--color-ink-900);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 0.7rem;
+}
+
+.chapitre-diagnostic-note {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--color-ink-muted);
+}
+
+/* --- Paywall simulé --- */
+
+.chapitre-paywall {
+  text-align: center;
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  padding: 2.5rem 2rem;
+}
+
+.chapitre-paywall h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-ink-900);
+  margin-bottom: 0.6rem;
+}
+
+.chapitre-paywall p {
+  color: var(--color-ink-muted);
+  line-height: 1.6;
+  max-width: 460px;
+  margin: 0 auto 1.4rem;
+}
+
+.chapitre-paywall-note {
+  font-size: 0.78rem;
+  font-style: italic;
+  margin-top: 1.4rem;
+}
+
+/* --- État "à venir" --- */
+
+.chapitre-badge-a-venir {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--color-cream-200);
+  color: var(--color-ink-muted);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.chapitre-a-venir-texte {
+  color: var(--color-ink-muted);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+  max-width: 620px;
+}
+
+.chapitre-sous-chapitres {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.chapitre-sous-chapitres li {
+  background: var(--color-white);
+  border: 1px solid var(--color-cream-200);
+  border-radius: 12px;
+  padding: 0.8rem 1.1rem;
+  font-size: 0.93rem;
+  color: var(--color-ink-900);
+}
+
+.chapitre-retour {
+  font-weight: 600;
+  color: var(--color-coral-600);
+  text-decoration: none;
+}
+
+.chapitre-retour:hover {
+  text-decoration: underline;
+}

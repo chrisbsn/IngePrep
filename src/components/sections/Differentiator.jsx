@@ -9,7 +9,7 @@ import "./Differentiator.css"
 
 const NEUTRAL_TEXT = "\"Réponse incorrecte.\""
 const HIGHLIGHT_TEXT =
-  "\"Ton hypothèse à l'étape 2 suppose que les droites sont concourantes — ce n'est pas donné par l'énoncé. C'est ce qui invalide le théorème appliqué à l'étape 3.\""
+  "\"À l'étape 1, tu poses x ≥ −2 mais tu oublies x ≥ 0 : une racine carrée ne peut pas égaler un nombre négatif. Tes calculs sont justes ensuite — c'est cette condition manquante qui laisse passer la solution parasite x = −1.\""
 
 const MECHANISMS = [
   "Mauvaise interprétation de l'énoncé",

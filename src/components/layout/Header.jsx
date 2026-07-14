@@ -1,7 +1,8 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import Container from "../ui/Container"
-import Button from "../ui/Button"
 import Logo from "../ui/Logo"
+import { useCompteSimule } from "../../hooks/useCompteSimule"
 import "./Header.css"
 
 const NAV_LINKS = [
@@ -14,6 +15,13 @@ const NAV_LINKS = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { connecte } = useCompteSimule()
+
+  // Une fois « connecté » (simulation), le CTA mène au tableau de bord plutôt
+  // qu'à un nouveau formulaire de connexion.
+  const cta = connecte
+    ? { to: "/tableau-de-bord", label: "Mon tableau de bord" }
+    : { to: "/connexion", label: "Obtenir mon accès" }
 
   function closeMenu() {
     setMenuOpen(false)
@@ -35,9 +43,9 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-        <Button href="#tarif" size="sm" className="header__cta">
-          Obtenir mon accès
-        </Button>
+        <Link to={cta.to} className="btn btn--primary btn--sm header__cta">
+          {cta.label}
+        </Link>
         <button
           type="button"
           className={`header__toggle ${menuOpen ? "header__toggle--open" : ""}`}
@@ -65,9 +73,13 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-        <Button href="#tarif" size="md" className="header__mobile-cta" onClick={closeMenu}>
-          Obtenir mon accès
-        </Button>
+        <Link
+          to={cta.to}
+          className="btn btn--primary btn--md header__mobile-cta"
+          onClick={closeMenu}
+        >
+          {cta.label}
+        </Link>
       </div>
     </header>
   )

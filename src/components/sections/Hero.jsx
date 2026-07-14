@@ -1,13 +1,16 @@
+import { Link } from "react-router-dom"
 import { useTypewriter } from "../../hooks/useTypewriter"
 import Container from "../ui/Container"
 import Button from "../ui/Button"
+import { useCompteSimule } from "../../hooks/useCompteSimule"
 import "./Hero.css"
 
 const DIAGNOSTIC_TEXT =
-  "Configuration non conforme aux conditions du théorème — les droites ne sont pas concourantes comme supposé à l'étape 2."
+  "Condition x ≥ 0 omise — une racine carrée ne peut pas égaler un nombre négatif. C'est ce qui laisse passer la solution parasite jusqu'à la conclusion."
 
 export default function Hero() {
   const diagnostic = useTypewriter(DIAGNOSTIC_TEXT, { speed: 14, startDelay: 900 })
+  const { connecte } = useCompteSimule()
 
   return (
     <section className="hero" id="top">
@@ -28,7 +31,12 @@ export default function Hero() {
             perdre des points — pour que tu t'entraînes sur ce qui compte vraiment.
           </p>
           <div className="hero__actions hero__enter" style={{ "--enter-delay": "260ms" }}>
-            <Button href="#tarif" size="md">Obtenir mon accès</Button>
+            <Link
+              to={connecte ? "/tableau-de-bord" : "/connexion"}
+              className="btn btn--primary btn--md"
+            >
+              {connecte ? "Mon tableau de bord" : "Obtenir mon accès"}
+            </Link>
             <Button href="#correcteur-ia" variant="secondary" size="md">Voir comment ça marche</Button>
           </div>
           <p className="hero__note hero__enter" style={{ "--enter-delay": "320ms" }}>
@@ -39,8 +47,8 @@ export default function Hero() {
         <div className="hero__visual hero__enter" style={{ "--enter-delay": "220ms" }} aria-hidden="true">
           <div className="hero__card">
             <div className="hero__card-row hero__card-row--wrong">
-              <span className="hero__card-label">Étape 3</span>
-              <span>Application du théorème de Thalès</span>
+              <span className="hero__card-label">Étape 1</span>
+              <span>√(x + 2) = x — condition d'existence : x ≥ −2</span>
             </div>
             <div className="hero__card-diagnostic">
               <span className="hero__card-diagnostic-icon">◆</span>
@@ -53,8 +61,8 @@ export default function Hero() {
               </div>
             </div>
             <div className="hero__card-row hero__card-row--ok">
-              <span className="hero__card-label">Étape 1–2</span>
-              <span>Mise en équation correcte</span>
+              <span className="hero__card-label">Étapes 2–3</span>
+              <span>Élévation au carré et factorisation correctes</span>
             </div>
           </div>
         </div>

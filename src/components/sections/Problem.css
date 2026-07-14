@@ -12,12 +12,13 @@
   background: var(--color-white);
   border: 1px solid var(--color-cream-200);
   border-radius: var(--radius-md);
-  padding: 1.8rem;
+  box-shadow: var(--shadow-card);
+  padding: 2rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .problem__card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   border-color: var(--color-coral-500);
   box-shadow: var(--shadow-card-hover);
 }
@@ -29,7 +30,7 @@
 
 .problem__card p {
   color: var(--color-ink-muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 

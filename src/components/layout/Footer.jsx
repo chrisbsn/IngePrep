@@ -7,10 +7,11 @@ export default function Footer() {
 
   return (
     <footer className="footer">
+      <div className="footer__halo" aria-hidden="true" />
       <Container className="footer__inner">
         <div className="footer__brand">
           <span className="footer__logo">
-            <Logo size={30} />
+            <Logo size={36} />
             Cap Ingé
           </span>
           <span className="footer__eyebrow">Cap sur Poly</span>

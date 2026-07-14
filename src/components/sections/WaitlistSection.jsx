@@ -5,7 +5,7 @@ import "./WaitlistSection.css"
 
 export default function WaitlistSection() {
   return (
-    <section className="waitlist" id="waitlist">
+    <section className="waitlist" id="liste-attente">
       <Container>
         <SectionTitle
           align="center"

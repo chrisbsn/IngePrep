@@ -1,4 +1,4 @@
 .waitlist {
   padding: var(--section-padding-y) 0;
-  background: linear-gradient(180deg, var(--color-cream-050) 0%, var(--color-cream-100) 100%);
+  background: var(--color-white);
 }

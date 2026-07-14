@@ -1,39 +1,39 @@
 :root {
-  /* Couleurs de marque — identité "Cap Ingé" */
-  --color-ink-900: #0b0f19;
+  /* Couleurs de marque — identité "Cap Ingé" (direction premium Linear/Cal.com) */
+  --color-ink-900: #0a0a0f;
   --color-ink-800: #131b2e;
   --color-ink-700: #1e2a45;
   --color-ink-600: #2e3f63;
 
-  --color-cream-050: #fafbfd;
-  --color-cream-100: #f2f4f8;
-  --color-cream-200: #e3e7ee;
+  --color-cream-050: #ffffff;
+  --color-cream-100: #fafbfc;
+  --color-cream-200: rgba(10, 10, 15, 0.06);
 
-  --color-coral-500: #2f5eff;
-  --color-coral-600: #1e45e0;
-  --color-mint-400: #6ee7c0;
-  --color-mint-600: #2fae8c;
+  --color-coral-500: #5e6ad2;
+  --color-coral-600: #4750b8;
+  --color-mint-400: #00d9a3;
+  --color-mint-600: #00a67d;
 
   --color-white: #ffffff;
-  --color-ink-muted: #667085;
+  --color-ink-muted: #5b6470;
 
   /* État sémantique (erreur/succès dans les démos produit, indépendant de la couleur de marque) */
   --color-error-500: #ef4444;
 
   /* Typo */
-  --font-display: "Space Grotesk", "Inter", sans-serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Geist", system-ui, -apple-system, sans-serif;
+  --font-body: "Geist", system-ui, -apple-system, sans-serif;
 
   /* Rayons / ombres */
-  --radius-sm: 10px;
-  --radius-md: 16px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
   --radius-lg: 24px;
-  --shadow-card: 0 8px 30px rgba(11, 15, 25, 0.08);
-  --shadow-card-hover: 0 14px 40px rgba(11, 15, 25, 0.14);
-  --glow-coral: rgba(47, 94, 255, 0.28);
-  --glow-mint: rgba(110, 231, 192, 0.28);
+  --shadow-card: 0 1px 3px rgba(30, 30, 60, 0.04), 0 8px 24px rgba(30, 30, 60, 0.04);
+  --shadow-card-hover: 0 4px 12px rgba(30, 30, 60, 0.08), 0 20px 40px rgba(30, 30, 60, 0.08);
+  --glow-coral: rgba(94, 106, 210, 0.28);
+  --glow-mint: rgba(0, 217, 163, 0.28);
 
   /* Layout */
   --max-width: 1140px;
-  --section-padding-y: clamp(3.5rem, 7vw, 6.5rem);
+  --section-padding-y: clamp(4rem, 12vw, 11.25rem);
 }

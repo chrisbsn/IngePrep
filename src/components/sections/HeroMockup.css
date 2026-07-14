@@ -1,0 +1,140 @@
+.hero-mockup {
+  width: 100%;
+  max-width: 380px;
+  background: #0a0a0f;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(94, 106, 210, 0.15);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: hero-mockup-in 0.8s ease-out forwards;
+}
+
+@keyframes hero-mockup-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-mockup__titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+}
+
+.hero-mockup__titlebar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-mockup__logo-mark {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #5e6ad2, #00d9a3);
+}
+
+.hero-mockup__product-name {
+  font-weight: 500;
+  font-size: 13px;
+  color: #e8e8ed;
+}
+
+.hero-mockup__status-badge {
+  background: rgba(0, 217, 163, 0.1);
+  color: #7a828e;
+  border: 1px solid rgba(0, 217, 163, 0.2);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+.hero-mockup__block {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.hero-mockup__label {
+  font-size: 12px;
+  color: #7a828e;
+  margin-bottom: 8px;
+}
+
+.hero-mockup__enonce {
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 15px;
+  color: #e8e8ed;
+}
+
+.hero-mockup__demarche {
+  font-size: 14px;
+  color: #e8e8ed;
+  line-height: 1.5;
+}
+
+.hero-mockup__diagnostic {
+  background: rgba(0, 217, 163, 0.08);
+  border: 1px solid rgba(0, 217, 163, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: hero-mockup-in 0.8s ease-out 0.4s forwards;
+}
+
+.hero-mockup__diagnostic-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.hero-mockup__diagnostic-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: #00d9a3;
+}
+
+.hero-mockup__diagnostic-label {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #00d9a3;
+}
+
+.hero-mockup__diagnostic-text {
+  font-size: 14px;
+  color: #e8e8ed;
+  line-height: 1.55;
+}
+
+.hero-mockup__diagnostic-lead {
+  color: #00d9a3;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-mockup,
+  .hero-mockup__diagnostic {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-mockup {
+    padding: 20px;
+  }
+}

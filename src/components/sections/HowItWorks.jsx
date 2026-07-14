@@ -6,7 +6,7 @@ import "./HowItWorks.css"
 
 export default function HowItWorks() {
   return (
-    <section className="how-it-works" id="comment-ca-marche">
+    <section className="how-it-works" id="comment">
       <Container>
         <SectionTitle
           align="center"

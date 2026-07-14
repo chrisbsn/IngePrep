@@ -28,7 +28,7 @@ export default function Differentiator() {
   const isTyping = bubbleVisible && highlightText.length < HIGHLIGHT_TEXT.length
 
   return (
-    <section className="differentiator" id="correcteur-ia">
+    <section className="differentiator" id="difference">
       <div className="differentiator__blob" aria-hidden="true" />
       <Container className="differentiator__inner">
         <SectionTitle

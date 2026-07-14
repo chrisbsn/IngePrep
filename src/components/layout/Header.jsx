@@ -6,9 +6,10 @@ import "./Header.css"
 
 const NAV_LINKS = [
   { label: "Le problème", href: "#probleme" },
-  { label: "Le correcteur IA", href: "#correcteur-ia" },
-  { label: "Comment ça marche", href: "#comment-ca-marche" },
-  { label: "Pour qui", href: "#pour-qui" },
+  { label: "Le correcteur IA", href: "#difference" },
+  { label: "Comment ça marche", href: "#comment" },
+  { label: "L'ESA", href: "#esa" },
+  { label: "Prix", href: "#tarif" },
   { label: "FAQ", href: "#faq" },
 ]
 
@@ -35,7 +36,7 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-        <Button href="#waitlist" size="sm" className="header__cta">
+        <Button href="#liste-attente" size="sm" className="header__cta">
           Rejoindre la liste d'attente
         </Button>
         <button
@@ -65,7 +66,7 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-        <Button href="#waitlist" size="md" className="header__mobile-cta" onClick={closeMenu}>
+        <Button href="#liste-attente" size="md" className="header__mobile-cta" onClick={closeMenu}>
           Rejoindre la liste d'attente
         </Button>
       </div>

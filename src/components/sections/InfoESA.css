@@ -1,73 +1,63 @@
 .info-esa {
   padding: var(--section-padding-y) 0;
-  background: var(--color-white);
+  background: var(--color-cream-050);
 }
 
 .info-esa__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
 }
 
-.info-esa__block {
-  background: var(--color-cream-050);
+.info-esa__carte {
+  background: var(--color-white);
   border: 1px solid var(--color-cream-200);
   border-radius: var(--radius-md);
-  padding: 1.8rem;
+  padding: 1.4rem 1.2rem;
+  text-align: center;
 }
 
-.info-esa__block:first-child {
-  grid-column: 1 / -1;
-}
-
-.info-esa__block h3 {
+.info-esa__chiffre {
+  display: block;
   font-family: var(--font-display);
-  font-size: 1.15rem;
   font-weight: 700;
-  color: var(--color-ink-900);
-  margin-bottom: 0.8rem;
-}
-
-.info-esa__body p {
-  color: var(--color-ink-muted);
-  line-height: 1.7;
-  font-size: 0.95rem;
-}
-
-.info-esa__body p + p,
-.info-esa__body p + ul {
-  margin-top: 0.7rem;
-}
-
-.info-esa__body ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.info-esa__body li {
-  position: relative;
-  padding-left: 1.2rem;
-  color: var(--color-ink-muted);
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-.info-esa__body li::before {
-  content: "—";
-  position: absolute;
-  left: 0;
+  font-size: 1.7rem;
   color: var(--color-coral-500);
+  margin-bottom: 0.6rem;
 }
 
-.info-esa__body strong {
-  color: var(--color-ink-900);
+.info-esa__carte p {
+  color: var(--color-ink-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.info-esa__lien {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.info-esa__lien a {
+  font-family: var(--font-display);
   font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-coral-600);
+  text-decoration: none;
 }
 
-@media (max-width: 760px) {
+.info-esa__lien a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
   .info-esa__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .info-esa__grid {
+    grid-template-columns: 1fr 1fr;
   }
 }

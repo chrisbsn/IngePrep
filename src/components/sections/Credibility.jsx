@@ -1,15 +1,13 @@
-import { useMemo, useState } from "react"
+import { Link } from "react-router-dom"
 import Container from "../ui/Container"
 import SectionTitle from "../ui/SectionTitle"
 import Reveal from "../ui/Reveal"
 import { annales, annaleLabel } from "../../data/annales"
 import "./Credibility.css"
 
-const FILTERS = [
-  { id: "toutes", label: "Toutes" },
-  { id: "juillet", label: "Juillet" },
-  { id: "septembre", label: "Septembre" },
-]
+// Aperçu : les sessions les plus récentes seulement. La banque complète
+// (34 PDF, 2009-2025, filtrable par session) vit sur sa propre page /annales.
+const APERCU = annales.slice(0, 6)
 
 const PROOFS = [
   {
@@ -33,13 +31,6 @@ const PROOFS = [
 ]
 
 export default function Credibility() {
-  const [filter, setFilter] = useState("toutes")
-
-  const visible = useMemo(() => {
-    if (filter === "toutes") return annales
-    return annales.filter((annale) => annale.session === filter)
-  }, [filter])
-
   return (
     <section className="credibility" id="methode">
       <Container>
@@ -64,27 +55,14 @@ export default function Credibility() {
             <div>
               <h3>La banque d'annales — en libre accès</h3>
               <p>
-                Les sujets officiels de l'examen spécial d'admission, de 2009 à 2025, sessions de
-                juillet et de septembre, au format PDF d'origine. Entraîne-toi sur les vrais
-                énoncés, pas sur des reconstitutions.
+                Les sujets officiels de l'examen spécial d'admission, au format PDF d'origine.
+                Entraîne-toi sur les vrais énoncés, pas sur des reconstitutions.
               </p>
-            </div>
-            <div className="credibility__filters" role="group" aria-label="Filtrer par session">
-              {FILTERS.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  className={`credibility__filter ${filter === item.id ? "credibility__filter--active" : ""}`}
-                  onClick={() => setFilter(item.id)}
-                >
-                  {item.label}
-                </button>
-              ))}
             </div>
           </div>
 
           <ul className="credibility__grid">
-            {visible.map((annale) => (
+            {APERCU.map((annale) => (
               <li key={annale.file}>
                 <a
                   className="credibility__card"
@@ -99,6 +77,12 @@ export default function Credibility() {
               </li>
             ))}
           </ul>
+
+          <div className="credibility__voir-tout">
+            <Link to="/annales" className="credibility__voir-tout-lien">
+              Voir toutes les ESA des années précédentes (2009–2025) →
+            </Link>
+          </div>
         </div>
       </Container>
     </section>

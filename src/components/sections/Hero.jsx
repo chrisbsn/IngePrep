@@ -22,8 +22,8 @@ export default function Hero() {
             Prépa ESA — UCLouvain · ULB · ULiège · UMons
           </span>
           <h1 className="hero__title hero__enter" style={{ "--enter-delay": "90ms" }}>
-            Tu rates tes exercices sans savoir pourquoi ? Notre IA identifie le raisonnement qui{" "}
-            <span className="hero__title-accent">coince</span> — pas juste la réponse fausse.
+            Tu t'es trompé ? On ne te dit pas juste où — on te dit{" "}
+            <span className="hero__title-accent">pourquoi</span> ton raisonnement a coincé.
           </h1>
           <p className="hero__subtitle hero__enter" style={{ "--enter-delay": "180ms" }}>
             IngePrep analyse ta démarche étape par étape sur les exercices de l'examen d'admission

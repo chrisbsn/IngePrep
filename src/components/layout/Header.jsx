@@ -17,11 +17,11 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { connecte } = useCompteSimule()
 
-  // Une fois « connecté » (simulation), le CTA mène au tableau de bord plutôt
-  // qu'à un nouveau formulaire de connexion.
-  const cta = connecte
-    ? { to: "/tableau-de-bord", label: "Mon tableau de bord" }
-    : { to: "/connexion", label: "Obtenir mon accès" }
+  // Non connecté : deux entrées ("Se connecter" discret + "Obtenir mon accès"
+  // principal) qui mènent toutes deux au même flux simulé, faute de distinction
+  // réelle entre connexion et inscription à ce stade.
+  // Connecté : une seule entrée vers le tableau de bord.
+  const cta = { to: connecte ? "/tableau-de-bord" : "/connexion" }
 
   function closeMenu() {
     setMenuOpen(false)
@@ -43,9 +43,16 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-        <Link to={cta.to} className="btn btn--primary btn--sm header__cta">
-          {cta.label}
-        </Link>
+        <div className="header__actions">
+          {!connecte && (
+            <Link to="/connexion" className="header__login-link">
+              Se connecter
+            </Link>
+          )}
+          <Link to={cta.to} className="btn btn--primary btn--sm header__cta">
+            {connecte ? "Mon tableau de bord" : "Obtenir mon accès"}
+          </Link>
+        </div>
         <button
           type="button"
           className={`header__toggle ${menuOpen ? "header__toggle--open" : ""}`}
@@ -73,12 +80,17 @@ export default function Header() {
             ))}
           </ul>
         </nav>
+        {!connecte && (
+          <Link to="/connexion" className="header__mobile-login" onClick={closeMenu}>
+            Se connecter
+          </Link>
+        )}
         <Link
           to={cta.to}
           className="btn btn--primary btn--md header__mobile-cta"
           onClick={closeMenu}
         >
-          {cta.label}
+          {connecte ? "Mon tableau de bord" : "Obtenir mon accès"}
         </Link>
       </div>
     </header>

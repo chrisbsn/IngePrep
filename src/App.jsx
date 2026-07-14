@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import Landing from "./pages/Landing"
+import AnnalesESA from "./pages/AnnalesESA"
+import GuideEsa from "./pages/GuideEsa"
 import AppHome from "./pages/AppHome"
 import Exercice from "./pages/Exercice"
 import Chapitre from "./pages/Chapitre"
@@ -13,6 +15,8 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
+      <Route path="/annales" element={<AnnalesESA />} />
+      <Route path="/guide-esa" element={<GuideEsa />} />
       <Route path="/connexion" element={<Connexion />} />
       <Route path="/tableau-de-bord" element={<TableauDeBord />} />
       <Route path="/app" element={<AppHome />} />

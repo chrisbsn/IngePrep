@@ -48,6 +48,18 @@ export default function Pricing() {
               Prix de lancement pour les 100 premiers utilisateurs — 129 € ensuite
             </span>
           </div>
+
+          <div className="pricing__comparaison">
+            <p className="pricing__comparaison-titre">
+              Le prix d'une heure de cours particulier, pour toute ta préparation
+            </p>
+            <p className="pricing__comparaison-texte">
+              Un cours particulier chez un ingénieur diplômé coûte entre 50 € et 80 € de l'heure.
+              Une année complète chez Student Academy dépasse 700 €. IngePrep, c'est un accès
+              illimité jusqu'à ton examen pour 79 €.
+            </p>
+          </div>
+
           <ul className="pricing__included">
             {INCLUDED.map((item) => (
               <li key={item}>

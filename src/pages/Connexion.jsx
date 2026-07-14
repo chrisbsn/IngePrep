@@ -5,16 +5,25 @@ import Button from "../components/ui/Button"
 import { useCompteSimule } from "../hooks/useCompteSimule"
 import "./Connexion.css"
 
+// Déduit un prénom d'affichage à partir de l'email, faute de vrai compte
+// à interroger (simulation locale, aucune vérification réelle).
+function prenomDepuisEmail(email) {
+  const local = email.split("@")[0]
+  if (!local) return "Élève"
+  return local.charAt(0).toUpperCase() + local.slice(1)
+}
+
 export default function Connexion() {
   const navigate = useNavigate()
   const { connecter } = useCompteSimule()
-  const [prenom, setPrenom] = useState("")
   const [email, setEmail] = useState("")
+  const [motDePasse, setMotDePasse] = useState("")
 
   function handleSubmit(event) {
     event.preventDefault()
-    // Simulation : rien n'est vérifié, les champs sont facultatifs.
-    connecter(prenom.trim() || "Élève", email.trim() || "demo@ingeprep.be")
+    // Simulation : le mot de passe n'est ni stocké ni vérifié pour l'instant.
+    const emailFinal = email.trim() || "demo@ingeprep.be"
+    connecter(prenomDepuisEmail(emailFinal), emailFinal)
     navigate("/tableau-de-bord")
   }
 
@@ -31,28 +40,17 @@ export default function Connexion() {
       <main className="connexion">
         <div className="connexion__carte">
           <div className="connexion__banniere" role="note">
-            <strong>⚠ Connexion simulée.</strong> Aucun mot de passe n'est demandé, stocké ni
-            vérifié : ce compte n'existe que dans ton navigateur, le temps de maquetter le
-            tableau de bord. Une vraie authentification (Supabase) le remplacera avant le
-            lancement.
+            <strong>⚠ Connexion simulée.</strong> Ton mot de passe n'est ni vérifié ni stocké de
+            façon sécurisée à ce stade : ce compte n'existe que dans ton navigateur. Une vraie
+            authentification (Supabase) remplacera ce formulaire avant le lancement.
           </div>
 
-          <h1 className="connexion__titre">Accède à ton espace</h1>
+          <h1 className="connexion__titre">Connecte-toi à ton compte</h1>
           <p className="connexion__sous-titre">
-            Renseigne un prénom et un email pour ouvrir le tableau de bord de démonstration.
+            Retrouve ton tableau de bord et ta progression.
           </p>
 
           <form className="connexion__form" onSubmit={handleSubmit}>
-            <label htmlFor="prenom">Prénom</label>
-            <input
-              id="prenom"
-              type="text"
-              value={prenom}
-              onChange={(event) => setPrenom(event.target.value)}
-              placeholder="Chris"
-              autoComplete="off"
-            />
-
             <label htmlFor="email">Email</label>
             <input
               id="email"
@@ -63,16 +61,28 @@ export default function Connexion() {
               autoComplete="off"
             />
 
+            <label htmlFor="mot-de-passe">Mot de passe</label>
+            <input
+              id="mot-de-passe"
+              type="password"
+              value={motDePasse}
+              onChange={(event) => setMotDePasse(event.target.value)}
+              placeholder="••••••••"
+              autoComplete="off"
+            />
+
             <p className="connexion__note-mdp">
-              Pas de champ mot de passe : il n'y a rien à sécuriser tant que
-              l'authentification n'est pas réelle. Les deux champs sont facultatifs — tu peux
-              entrer directement.
+              Simulation : le mot de passe saisi n'est pas vérifié, tu peux entrer n'importe quoi.
             </p>
 
             <Button type="submit" size="md" className="connexion__cta">
-              Ouvrir mon tableau de bord
+              Se connecter
             </Button>
           </form>
+
+          <p className="connexion__bascule">
+            Pas encore de compte ? <Link to="/inscription">Obtenir mon accès</Link>
+          </p>
         </div>
       </main>
     </div>

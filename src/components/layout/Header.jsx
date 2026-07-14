@@ -17,11 +17,10 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { connecte } = useCompteSimule()
 
-  // Non connecté : deux entrées ("Se connecter" discret + "Obtenir mon accès"
-  // principal) qui mènent toutes deux au même flux simulé, faute de distinction
-  // réelle entre connexion et inscription à ce stade.
+  // Non connecté : "Se connecter" (discret) mène au login d'un compte existant ;
+  // "Obtenir mon accès" (principal) mène à la création de compte + au paiement.
   // Connecté : une seule entrée vers le tableau de bord.
-  const cta = { to: connecte ? "/tableau-de-bord" : "/connexion" }
+  const cta = { to: connecte ? "/tableau-de-bord" : "/inscription" }
 
   function closeMenu() {
     setMenuOpen(false)

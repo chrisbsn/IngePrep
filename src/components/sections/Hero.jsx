@@ -32,7 +32,7 @@ export default function Hero() {
           </p>
           <div className="hero__actions hero__enter" style={{ "--enter-delay": "260ms" }}>
             <Link
-              to={connecte ? "/tableau-de-bord" : "/connexion"}
+              to={connecte ? "/tableau-de-bord" : "/inscription"}
               className="btn btn--primary btn--md"
             >
               {connecte ? "Mon tableau de bord" : "Obtenir mon accès"}

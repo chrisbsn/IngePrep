@@ -1,0 +1,28 @@
+.inscription__recap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  background: rgba(47, 94, 255, 0.06);
+  border: 1px solid rgba(47, 94, 255, 0.2);
+  border-radius: 12px;
+  padding: 0.8rem 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.inscription__recap-prix {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--color-ink-900);
+}
+
+.inscription__recap-note {
+  font-size: 0.83rem;
+  color: var(--color-ink-muted);
+}
+
+.inscription__erreur {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--color-error-500);
+}

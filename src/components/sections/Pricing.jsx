@@ -1,9 +1,7 @@
-import { useState } from "react"
+import { Link } from "react-router-dom"
 import Container from "../ui/Container"
 import SectionTitle from "../ui/SectionTitle"
-import Button from "../ui/Button"
 import Reveal from "../ui/Reveal"
-import { startCheckout } from "../../utils/checkout"
 import "./Pricing.css"
 
 const INCLUDED = [
@@ -15,20 +13,6 @@ const INCLUDED = [
 ]
 
 export default function Pricing() {
-  const [status, setStatus] = useState("idle")
-  const [errorMessage, setErrorMessage] = useState("")
-
-  async function handleCheckout() {
-    setStatus("loading")
-    setErrorMessage("")
-    try {
-      await startCheckout()
-    } catch (error) {
-      setStatus("error")
-      setErrorMessage(error.message)
-    }
-  }
-
   return (
     <section className="pricing" id="tarif">
       <Container>
@@ -68,16 +52,9 @@ export default function Pricing() {
               </li>
             ))}
           </ul>
-          <Button
-            type="button"
-            size="md"
-            className="pricing__cta"
-            onClick={handleCheckout}
-            disabled={status === "loading"}
-          >
-            {status === "loading" ? "Redirection vers Stripe..." : "Obtenir mon accès — 79 €"}
-          </Button>
-          {status === "error" && <p className="pricing__error">{errorMessage}</p>}
+          <Link to="/inscription" className="btn btn--primary btn--md pricing__cta">
+            Obtenir mon accès — 79 €
+          </Link>
           <p className="pricing__note">
             Paiement sécurisé par Stripe. Carte bancaire et Bancontact acceptés.
           </p>

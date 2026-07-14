@@ -1,6 +1,6 @@
 import Stripe from "stripe"
 
-const PRICE_EUR_CENTS = 3000
+const PRICE_EUR_CENTS = 7900
 
 export const handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -27,7 +27,7 @@ export const handler = async (event) => {
             currency: "eur",
             unit_amount: PRICE_EUR_CENTS,
             product_data: {
-              name: "Cap Ingé — Accès complet",
+              name: "IngePrep — Accès complet",
               description: "Accès à la plateforme de préparation à l'ESA jusqu'à ton examen.",
             },
           },

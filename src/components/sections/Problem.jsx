@@ -5,19 +5,19 @@ import "./Problem.css"
 
 const POINTS = [
   {
-    title: "Les corrections statiques s'arrêtent au résultat",
+    title: "Erreur de méthode ?",
     description:
-      "Des milliers de corrections types existent déjà. Elles te montrent la bonne méthode, mais ne te disent jamais à quelle étape précise TA copie a dérapé.",
+      "Tu as peut-être choisi la mauvaise approche dès le départ. Le corrigé statique montre la bonne méthode, mais ne te dit jamais à quelle étape précise TA démarche a dérapé.",
   },
   {
-    title: "Les prépas classiques corrigent en masse",
+    title: "Erreur de calcul ?",
     description:
-      "Avec des dizaines d'élèves par session, le feedback individualisé sur le raisonnement est rare — on te donne une note, rarement un diagnostic.",
+      "Ou bien ton raisonnement était juste et une seule manipulation a tout fait basculer. Sans diagnostic, tu ne sauras pas que le problème n'était pas ta compréhension.",
   },
   {
-    title: "Tu répètes les mêmes erreurs sans le savoir",
+    title: "Erreur de concept ?",
     description:
-      "Sans comprendre le mécanisme d'erreur, tu t'entraînes sur les mauvais exercices et tu répètes le même type de faute d'un test à l'autre.",
+      "Ou encore, tu appliques une formule sans avoir vraiment saisi la notion derrière. C'est l'erreur la plus coûteuse — et celle qu'aucun corrigé type ne détecte.",
   },
 ]
 
@@ -27,8 +27,8 @@ export default function Problem() {
       <Container>
         <SectionTitle
           eyebrow="Le problème"
-          title="Savoir que tu t'es trompé ne suffit pas à progresser"
-          description="La plupart des outils de préparation valident une réponse. Peu t'expliquent pourquoi ton raisonnement a cassé — et c'est pourtant l'information qui change vraiment ta progression."
+          title="Tu refais un exercice, tu compares au corrigé, ta réponse est fausse. Et maintenant ?"
+          description="Le corrigé statique te montre que tu t'es trompé — jamais pourquoi. Tant que tu ne sais pas si c'est la méthode, le calcul ou le concept qui a lâché, tu retravailles au hasard et tu répètes la même faute d'un examen blanc à l'autre."
         />
         <div className="problem__grid">
           {POINTS.map((point, index) => (

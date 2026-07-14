@@ -1,27 +1,32 @@
 export const faqItems = [
   {
-    question: "C'est quoi exactement l'ESA ?",
+    question: "L'accès dure combien de temps exactement ?",
     answer:
-      "L'Examen Spécial d'Admission (ESA) est l'examen d'entrée commun aux écoles polytechniques belges francophones (UCLouvain, ULB, ULiège, UMons). Il teste le raisonnement en mathématiques et en sciences plutôt que la restitution de cours, ce qui explique pourquoi tant d'élèves solides en classe s'y sentent démunis.",
+      "Ton accès reste actif jusqu'à ton examen, seconde session comprise. Un seul paiement, pas d'abonnement, pas de renouvellement caché : tu paies une fois et tu es couvert pour toute ta préparation.",
   },
   {
-    question: "Comment l'IA corrige-t-elle une copie ?",
+    question: "La garantie satisfait ou remboursé, comment ça marche ?",
     answer:
-      "Tu soumets ton raisonnement étape par étape, pas juste ta réponse finale. Le correcteur compare ta démarche à des méthodes de référence rédigées par des enseignants, repère à quelle étape précise le raisonnement dévie, et t'explique le mécanisme d'erreur — mauvaise interprétation de l'énoncé, erreur de calcul, hypothèse implicite fausse, etc.",
+      "Tu as 14 jours après ton achat pour tester la plateforme. Si elle ne te convient pas, un simple email suffit : on te rembourse intégralement, sans justification à fournir ni formulaire à remplir.",
   },
   {
-    question: "En quoi c'est différent d'une correction classique ?",
+    question: "Je vise l'UCLouvain, l'ULiège ou l'UMons — pas l'ULB. C'est adapté ?",
     answer:
-      "Une correction statique te dit si le résultat est bon. Notre correcteur identifie où et pourquoi ton raisonnement a basculé, même quand la réponse finale est correcte par hasard ou fausse pour une raison différente de ce que tu penses.",
+      "Oui. Le programme de l'examen spécial d'admission est commun aux quatre facultés : mêmes matières, mêmes critères de réussite, et les jurys veillent à l'homogénéité des épreuves. Nos méthodes de référence et nos diagnostics valent indistinctement pour les quatre.",
   },
   {
-    question: "Quand est-ce que ça sort ?",
+    question: "J'ai raté une matière en juillet. Ça vaut la peine pour septembre ?",
     answer:
-      "Le lancement commercial est prévu en septembre 2026, à temps pour l'année de préparation. Les personnes inscrites sur la liste d'attente seront prévenues en priorité et bénéficieront d'un accès anticipé.",
+      "C'est même le cas où le diagnostic par mécanisme est le plus utile : grâce aux dispenses, tu ne repasses que les matières échouées. En quelques semaines, il faut corriger précisément ce qui a lâché — pas tout réviser au hasard. Le correcteur identifie tes mécanismes d'erreur récurrents pour cibler ta préparation.",
   },
   {
-    question: "Combien ça va coûter ?",
+    question: "Et si je commence tôt, bien avant l'examen ?",
     answer:
-      "Le prix définitif n'est pas encore fixé. L'objectif est un accès unique à tarif raisonnable, pensé pour un budget d'étudiant — les détails seront communiqués aux inscrits de la liste d'attente en priorité.",
+      "Mieux : ton accès unique couvre toute la période jusqu'à ton examen, quel que soit le moment où tu commences. Plus tôt tu identifies tes mécanismes d'erreur, plus tu as de temps pour les corriger durablement.",
+  },
+  {
+    question: "Quels moyens de paiement sont acceptés ?",
+    answer:
+      "Le paiement passe par Stripe, en toute sécurité : carte bancaire ou Bancontact. Aucune donnée bancaire ne transite par nos serveurs.",
   },
 ]

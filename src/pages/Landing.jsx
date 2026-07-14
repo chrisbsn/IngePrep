@@ -3,12 +3,11 @@ import Footer from "../components/layout/Footer"
 import Hero from "../components/sections/Hero"
 import Problem from "../components/sections/Problem"
 import Differentiator from "../components/sections/Differentiator"
+import Credibility from "../components/sections/Credibility"
+import InfoESA from "../components/sections/InfoESA"
 import HowItWorks from "../components/sections/HowItWorks"
-import Audience from "../components/sections/Audience"
 import Pricing from "../components/sections/Pricing"
-import Checkout from "../components/sections/Checkout"
 import Faq from "../components/sections/Faq"
-import WaitlistSection from "../components/sections/WaitlistSection"
 import CheckoutBanner from "../components/ui/CheckoutBanner"
 
 export default function Landing() {
@@ -20,12 +19,11 @@ export default function Landing() {
         <Hero />
         <Problem />
         <Differentiator />
+        <Credibility />
+        <InfoESA />
         <HowItWorks />
-        <Audience />
         <Pricing />
-        <Checkout />
         <Faq />
-        <WaitlistSection />
       </main>
       <Footer />
     </>

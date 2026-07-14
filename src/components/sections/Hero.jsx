@@ -16,22 +16,23 @@ export default function Hero() {
       <Container className="hero__inner">
         <div className="hero__content">
           <span className="hero__badge hero__enter" style={{ "--enter-delay": "0ms" }}>
-            Lancement septembre 2026 — UCLouvain · ULB · ULiège · UMons
+            Prépa ESA — UCLouvain · ULB · ULiège · UMons
           </span>
           <h1 className="hero__title hero__enter" style={{ "--enter-delay": "90ms" }}>
-            Prépare l'ESA avec un feedback qui comprend <span className="hero__title-accent">pourquoi</span> tu te trompes.
+            Tu rates tes exercices sans savoir pourquoi ? Notre IA identifie le raisonnement qui{" "}
+            <span className="hero__title-accent">coince</span> — pas juste la réponse fausse.
           </h1>
           <p className="hero__subtitle hero__enter" style={{ "--enter-delay": "180ms" }}>
-            Cap Ingé ne se contente pas de vérifier ta réponse finale. Notre correcteur IA analyse ton
-            raisonnement étape par étape et identifie le mécanisme précis qui te fait perdre des points —
-            pour que tu t'entraînes sur ce qui compte vraiment.
+            IngePrep analyse ta démarche étape par étape sur les exercices de l'examen d'admission
+            ingénieur civil (UCLouvain, ULB, ULiège, UMons) et nomme le mécanisme précis qui te fait
+            perdre des points — pour que tu t'entraînes sur ce qui compte vraiment.
           </p>
           <div className="hero__actions hero__enter" style={{ "--enter-delay": "260ms" }}>
-            <Button href="#waitlist" size="md">Rejoindre la liste d'attente</Button>
+            <Button href="#tarif" size="md">Obtenir mon accès</Button>
             <Button href="#correcteur-ia" variant="secondary" size="md">Voir comment ça marche</Button>
           </div>
           <p className="hero__note hero__enter" style={{ "--enter-delay": "320ms" }}>
-            Gratuit de s'inscrire. Aucun paiement à ce stade.
+            Accès unique. Satisfait ou remboursé pendant 14 jours.
           </p>
         </div>
 

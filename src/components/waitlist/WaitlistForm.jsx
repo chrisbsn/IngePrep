@@ -72,7 +72,7 @@ export default function WaitlistForm() {
         </Button>
       </div>
       <p className="waitlist-form__disclaimer">
-        On ne t'enverra que des nouvelles de Cap Ingé. Désinscription en un clic à tout moment.
+        On ne t'enverra que des nouvelles de IngePrep. Désinscription en un clic à tout moment.
       </p>
     </form>
   )

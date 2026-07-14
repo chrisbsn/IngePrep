@@ -11,9 +11,9 @@ export default function Footer() {
         <div className="footer__brand">
           <span className="footer__logo">
             <Logo size={30} />
-            Cap Ingé
+            IngePrep
           </span>
-          <span className="footer__eyebrow">Cap sur Poly</span>
+          <span className="footer__eyebrow">Objectif Polytech</span>
           <p className="footer__tagline">
             La préparation à l'ESA qui diagnostique ton raisonnement, pas seulement tes résultats.
           </p>
@@ -32,16 +32,16 @@ export default function Footer() {
         <div className="footer__col">
           <h3>Contact</h3>
           <ul>
-            <li><a href="mailto:contact@capinge.be">contact@capinge.be</a></li>
+            <li><a href="mailto:contact@ingeprep.be">contact@ingeprep.be</a></li>
           </ul>
         </div>
       </Container>
 
       <Container>
         <div className="footer__bottom">
-          <p>© {year} Cap Ingé. Projet en préparation — lancement prévu septembre 2026.</p>
+          <p>© {year} IngePrep. Tous droits réservés.</p>
           <p className="footer__disclaimer">
-            Cap Ingé est un projet indépendant, non affilié à l'UCLouvain, l'ULB, l'ULiège, l'UMons ni au CESAM.
+            IngePrep est un projet indépendant, non affilié à l'UCLouvain, l'ULB, l'ULiège, l'UMons ni au CESAM.
           </p>
         </div>
       </Container>

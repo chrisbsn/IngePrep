@@ -43,7 +43,7 @@ export default function AppHome() {
       <header className="app-header">
         <Link to="/" className="app-header__logo">
           <Logo size={28} />
-          Cap Ingé
+          IngePrep
         </Link>
         <Link to="/" className="app-header__home-link">
           Accueil

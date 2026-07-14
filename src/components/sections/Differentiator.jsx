@@ -4,6 +4,7 @@ import SectionTitle from "../ui/SectionTitle"
 import Reveal from "../ui/Reveal"
 import { useReveal } from "../../hooks/useReveal"
 import { useTypewriter } from "../../hooks/useTypewriter"
+import DemoCorrecteur from "./DemoCorrecteur"
 import "./Differentiator.css"
 
 const NEUTRAL_TEXT = "\"Réponse incorrecte.\""
@@ -46,13 +47,15 @@ export default function Differentiator() {
             <p>{NEUTRAL_TEXT}</p>
           </div>
           <div className="differentiator__bubble differentiator__bubble--highlight">
-            <span className="differentiator__bubble-label">Correcteur Cap Ingé</span>
+            <span className="differentiator__bubble-label">Correcteur IngePrep</span>
             <p>
               {highlightText}
               {isTyping && <span className="differentiator__cursor" />}
             </p>
           </div>
         </div>
+
+        <DemoCorrecteur />
 
         <Reveal className="differentiator__mechanisms" delay={150}>
           <p className="differentiator__mechanisms-title">Exemples de mécanismes d'erreur identifiés :</p>

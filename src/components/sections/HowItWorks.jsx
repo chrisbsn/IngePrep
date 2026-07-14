@@ -1,5 +1,6 @@
 import Container from "../ui/Container"
 import SectionTitle from "../ui/SectionTitle"
+import Button from "../ui/Button"
 import Reveal from "../ui/Reveal"
 import { steps } from "../../data/steps"
 import "./HowItWorks.css"
@@ -11,7 +12,7 @@ export default function HowItWorks() {
         <SectionTitle
           align="center"
           eyebrow="Comment ça marche"
-          title="Quatre étapes, du raisonnement au progrès"
+          title="Trois étapes, du raisonnement au progrès"
         />
         <div className="how-it-works__grid">
           {steps.map((step, index) => (
@@ -21,6 +22,9 @@ export default function HowItWorks() {
               <p>{step.description}</p>
             </Reveal>
           ))}
+        </div>
+        <div className="how-it-works__cta">
+          <Button href="#tarif" size="md">Voir le tarif de lancement</Button>
         </div>
       </Container>
     </section>

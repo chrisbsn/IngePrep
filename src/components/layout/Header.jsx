@@ -5,10 +5,10 @@ import Logo from "../ui/Logo"
 import "./Header.css"
 
 const NAV_LINKS = [
-  { label: "Le problème", href: "#probleme" },
   { label: "Le correcteur IA", href: "#correcteur-ia" },
-  { label: "Comment ça marche", href: "#comment-ca-marche" },
-  { label: "Pour qui", href: "#pour-qui" },
+  { label: "Annales", href: "#annales" },
+  { label: "L'examen ESA", href: "#examen-admission" },
+  { label: "Tarif", href: "#tarif" },
   { label: "FAQ", href: "#faq" },
 ]
 
@@ -24,7 +24,7 @@ export default function Header() {
       <Container className="header__inner">
         <a href="#top" className="header__logo" onClick={closeMenu}>
           <Logo size={30} />
-          Cap Ingé
+          IngePrep
         </a>
         <nav className="header__nav" aria-label="Navigation principale">
           <ul>
@@ -35,8 +35,8 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-        <Button href="#waitlist" size="sm" className="header__cta">
-          Rejoindre la liste d'attente
+        <Button href="#tarif" size="sm" className="header__cta">
+          Obtenir mon accès
         </Button>
         <button
           type="button"
@@ -65,8 +65,8 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-        <Button href="#waitlist" size="md" className="header__mobile-cta" onClick={closeMenu}>
-          Rejoindre la liste d'attente
+        <Button href="#tarif" size="md" className="header__mobile-cta" onClick={closeMenu}>
+          Obtenir mon accès
         </Button>
       </div>
     </header>

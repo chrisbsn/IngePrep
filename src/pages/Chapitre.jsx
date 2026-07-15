@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import Button from "../components/ui/Button"
 import ClavierMath from "../components/app/ClavierMath"
-import Paywall from "../components/app/Paywall"
+import { usePaywall } from "../components/app/PaywallContext"
 import { getChapitre } from "../data/programme"
 import {
   theorieDerivees,
@@ -38,14 +38,12 @@ export default function Chapitre() {
 
   const essais = useEssaisGratuits()
   const progression = useProgression()
+  const paywall = usePaywall()
   const [ongletActif, setOngletActif] = useState("theorie")
   const [scenarioChoisi, setScenarioChoisi] = useState(SCENARIOS[0].id)
   // { [exerciceId]: { demarche, reponse, diagnostic, scenario } }
   const [soumissions, setSoumissions] = useState({})
   const [historiqueScenarios, setHistoriqueScenarios] = useState([])
-  // Le paywall n'apparaît qu'au moment où l'élève tente une correction à zéro,
-  // pas de façon préventive : la navigation et le contenu restent accessibles.
-  const [paywallVisible, setPaywallVisible] = useState(false)
 
   if (!resultat) {
     return (
@@ -61,10 +59,11 @@ export default function Chapitre() {
   const mecanisme = detecterMecanismeRecurrent(historiqueScenarios)
 
   function soumettre(exercice, demarche, reponseFinale) {
-    // Quota épuisé : on affiche le paywall en pleine séance, ici, au lieu de
-    // délivrer une correction. La navigation et le contenu restent accessibles.
+    // Quota épuisé : on ouvre la modale de paywall par-dessus l'écran courant,
+    // sans navigation. La démarche déjà rédigée reste intacte (on ne touche ni
+    // au champ ni à l'état de l'exercice) ; la fermeture laisse tout en place.
     if (essais.epuise) {
-      setPaywallVisible(true)
+      paywall.ouvrir()
       return
     }
     // Le correcteur compare la démarche libre aux étapes de référence (exercice.etapes).
@@ -182,13 +181,6 @@ export default function Chapitre() {
               <EtatAVenir quoi="Les exercices de ce chapitre, tirés de la banque d'annales, sont en préparation." />
             ) : (
               <>
-                {/* Paywall déclenché en pleine séance à la soumission (quota atteint) */}
-                {paywallVisible && (
-                  <div className="chapitre-paywall-inline">
-                    <Paywall />
-                  </div>
-                )}
-
                 {/* Outil de test interne (dev uniquement) */}
                 {IS_DEV && (
                   <div className="chapitre-devtool" role="group" aria-label="Outil de test interne">

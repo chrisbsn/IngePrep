@@ -1,0 +1,96 @@
+.paywall-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2.5rem 1.25rem;
+  overflow-y: auto;
+}
+
+.paywall-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 15, 25, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.paywall-modal__contenu {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  margin: auto;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 60px rgba(11, 15, 25, 0.35);
+  padding: 2rem 1.75rem;
+  animation: paywall-modal-apparition 0.2s ease;
+}
+
+@keyframes paywall-modal-apparition {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.paywall-modal__fermer {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-cream-100);
+  color: var(--color-ink-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.paywall-modal__fermer:hover {
+  background: var(--color-cream-200);
+  color: var(--color-ink-900);
+}
+
+.paywall-modal__entete {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-ink-900);
+  text-align: center;
+  margin: 0.4rem 1.5rem 0.4rem;
+  line-height: 1.25;
+}
+
+.paywall-modal__sous-titre {
+  text-align: center;
+  color: var(--color-ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+/* La carte tarif reprend son style existant ; dans la modale, on retire son
+   ombre propre (la modale porte déjà la sienne) et sa transformation au survol,
+   et on allège le padding pour ne pas cumuler avec celui de la modale. */
+.paywall-modal__carte {
+  box-shadow: none;
+  border: 1px solid var(--color-cream-200);
+  padding: 1.6rem;
+}
+
+.paywall-modal__carte:hover {
+  transform: none;
+  box-shadow: none;
+}

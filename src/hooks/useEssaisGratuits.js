@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react"
 // du paiement) : un compteur local se contourne en vidant le stockage du navigateur.
 const STORAGE_KEY = "ingeprep_essais_gratuits_simules"
 const EVENEMENT = "ingeprep:essais"
-export const MAX_ESSAIS_GRATUITS = 5
+export const MAX_ESSAIS_GRATUITS = 3
 
 function lireCompteur() {
   try {

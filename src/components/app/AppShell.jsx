@@ -1,7 +1,10 @@
+import { useMemo, useState } from "react"
 import { NavLink, Link, Navigate, Outlet } from "react-router-dom"
 import Logo from "../ui/Logo"
 import { useCompteSimule } from "../../hooks/useCompteSimule"
 import { useEssaisGratuits, MAX_ESSAIS_GRATUITS } from "../../hooks/useEssaisGratuits"
+import { PaywallContext } from "./PaywallContext"
+import PaywallModal from "./PaywallModal"
 import "./AppShell.css"
 
 // Libellés courts pour la barre latérale (les libellés complets restent dans le programme).
@@ -19,6 +22,12 @@ function lienClasse({ isActive }) {
 export default function AppShell() {
   const { connecte, compte } = useCompteSimule()
   const essais = useEssaisGratuits()
+  const [paywallOuvert, setPaywallOuvert] = useState(false)
+
+  const paywall = useMemo(
+    () => ({ ouvrir: () => setPaywallOuvert(true), fermer: () => setPaywallOuvert(false) }),
+    []
+  )
 
   // Coquille réservée aux vues connectées.
   if (!connecte) return <Navigate to="/connexion" replace />
@@ -26,6 +35,7 @@ export default function AppShell() {
   const pourcentage = Math.round((essais.restants / MAX_ESSAIS_GRATUITS) * 100)
 
   return (
+    <PaywallContext.Provider value={paywall}>
     <div className="app-shell-layout">
       {/* Le fond sombre (aside) s'étire sur toute la hauteur de la page, même très
           longue ; le bloc de navigation (inner) reste collé en haut de l'écran. */}
@@ -75,6 +85,11 @@ export default function AppShell() {
               </div>
             </div>
 
+            {/* Ouvre la modale de paywall (pas de navigation vers une page séparée). */}
+            <button type="button" className="app-shell__acces" onClick={paywall.ouvrir}>
+              Passer à l'accès complet
+            </button>
+
             <NavLink to="/compte" className={lienClasse}>
               <span className="app-shell__lien-icone" aria-hidden="true">☺</span>
               {compte?.prenom || "Compte"}
@@ -87,5 +102,8 @@ export default function AppShell() {
         <Outlet />
       </div>
     </div>
+
+    <PaywallModal open={paywallOuvert} onClose={paywall.fermer} />
+    </PaywallContext.Provider>
   )
 }

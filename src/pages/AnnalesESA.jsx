@@ -86,7 +86,7 @@ export default function AnnalesESA() {
                   2009 à 2022, en plus des plus récentes déjà accessibles ici.
                 </p>
               </div>
-              <Link to="/inscription" className="btn btn--primary btn--md annales-page__locked-cta">
+              <Link to="/connexion" className="btn btn--primary btn--md annales-page__locked-cta">
                 Voir toutes les années précédentes →
               </Link>
             </div>

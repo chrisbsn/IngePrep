@@ -87,7 +87,7 @@ export default function Credibility() {
                 Voir toutes les annales (2009–2025) →
               </Link>
             ) : (
-              <Link to="/inscription" className="credibility__voir-tout-lien">
+              <Link to="/connexion" className="credibility__voir-tout-lien">
                 Voir toutes les années précédentes →
               </Link>
             )}

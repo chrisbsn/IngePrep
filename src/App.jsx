@@ -12,9 +12,11 @@ import AnnalesApp from "./pages/AnnalesApp"
 import Compte from "./pages/Compte"
 import AppShell from "./components/app/AppShell"
 import { useSmoothAnchorScroll } from "./hooks/useSmoothAnchorScroll"
+import { useScrollToTop } from "./hooks/useScrollToTop"
 
 export default function App() {
   useSmoothAnchorScroll()
+  useScrollToTop()
 
   return (
     <Routes>

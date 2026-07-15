@@ -81,7 +81,7 @@ export default function Connexion() {
           </form>
 
           <p className="connexion__bascule">
-            Pas encore de compte ? <Link to="/inscription">Obtenir mon accès</Link>
+            Pas encore de compte ? <Link to="/inscription">Créer un compte</Link>
           </p>
         </div>
       </main>

@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom"
+import { useState } from "react"
 import Container from "../ui/Container"
 import SectionTitle from "../ui/SectionTitle"
+import Button from "../ui/Button"
 import Reveal from "../ui/Reveal"
+import { startCheckout } from "../../utils/checkout"
 import "./Pricing.css"
 
 const INCLUDED = [
@@ -13,6 +15,23 @@ const INCLUDED = [
 ]
 
 export default function Pricing() {
+  const [status, setStatus] = useState("idle")
+  const [errorMessage, setErrorMessage] = useState("")
+
+  // Le paiement vit ici, sur la carte tarif (et plus sur /inscription, devenu
+  // la création de compte gratuite) : c'est vers cette section que pointe
+  // "Obtenir mon accès" (header, hero).
+  async function handleCheckout() {
+    setStatus("loading")
+    setErrorMessage("")
+    try {
+      await startCheckout()
+    } catch (error) {
+      setStatus("error")
+      setErrorMessage(error.message)
+    }
+  }
+
   return (
     <section className="pricing" id="tarif">
       <Container>
@@ -52,9 +71,16 @@ export default function Pricing() {
               </li>
             ))}
           </ul>
-          <Link to="/inscription" className="btn btn--primary btn--md pricing__cta">
-            Obtenir mon accès — 79 €
-          </Link>
+          <Button
+            type="button"
+            size="md"
+            className="pricing__cta"
+            onClick={handleCheckout}
+            disabled={status === "loading"}
+          >
+            {status === "loading" ? "Redirection vers Stripe..." : "Obtenir mon accès — 79 €"}
+          </Button>
+          {status === "error" && <p className="pricing__error">{errorMessage}</p>}
           <p className="pricing__note">
             Paiement sécurisé par Stripe. Carte bancaire et Bancontact acceptés.
           </p>

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import Container from "../ui/Container"
 import Logo from "../ui/Logo"
 import { useCompteSimule } from "../../hooks/useCompteSimule"
@@ -16,14 +16,36 @@ const NAV_LINKS = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { connecte } = useCompteSimule()
-
-  // Non connecté : "Se connecter" (discret) mène au login d'un compte existant ;
-  // "Obtenir mon accès" (principal) mène à la création de compte + au paiement.
-  // Connecté : une seule entrée vers le tableau de bord.
-  const cta = { to: connecte ? "/tableau-de-bord" : "/inscription" }
+  const { pathname } = useLocation()
+  const surLanding = pathname === "/"
 
   function closeMenu() {
     setMenuOpen(false)
+  }
+
+  // "Obtenir mon accès" mène au tarif + paiement (carte #tarif). Sur la landing,
+  // ancre directe (défilement fluide) ; ailleurs, navigation vers /#tarif. Une
+  // fois connecté, la même place mène au tableau de bord.
+  function CtaAcces({ className }) {
+    if (connecte) {
+      return (
+        <Link to="/tableau-de-bord" className={className} onClick={closeMenu}>
+          Mon tableau de bord
+        </Link>
+      )
+    }
+    if (surLanding) {
+      return (
+        <a href="#tarif" className={className} onClick={closeMenu}>
+          Obtenir mon accès
+        </a>
+      )
+    }
+    return (
+      <Link to="/#tarif" className={className} onClick={closeMenu}>
+        Obtenir mon accès
+      </Link>
+    )
   }
 
   return (
@@ -48,9 +70,7 @@ export default function Header() {
               Se connecter
             </Link>
           )}
-          <Link to={cta.to} className="btn btn--primary btn--sm header__cta">
-            {connecte ? "Mon tableau de bord" : "Obtenir mon accès"}
-          </Link>
+          <CtaAcces className="btn btn--primary btn--sm header__cta" />
         </div>
         <button
           type="button"
@@ -84,13 +104,7 @@ export default function Header() {
             Se connecter
           </Link>
         )}
-        <Link
-          to={cta.to}
-          className="btn btn--primary btn--md header__mobile-cta"
-          onClick={closeMenu}
-        >
-          {connecte ? "Mon tableau de bord" : "Obtenir mon accès"}
-        </Link>
+        <CtaAcces className="btn btn--primary btn--md header__mobile-cta" />
       </div>
     </header>
   )

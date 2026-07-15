@@ -31,12 +31,13 @@ export default function Hero() {
             perdre des points — pour que tu t'entraînes sur ce qui compte vraiment.
           </p>
           <div className="hero__actions hero__enter" style={{ "--enter-delay": "260ms" }}>
-            <Link
-              to={connecte ? "/tableau-de-bord" : "/inscription"}
-              className="btn btn--primary btn--md"
-            >
-              {connecte ? "Mon tableau de bord" : "Obtenir mon accès"}
-            </Link>
+            {connecte ? (
+              <Link to="/tableau-de-bord" className="btn btn--primary btn--md">
+                Mon tableau de bord
+              </Link>
+            ) : (
+              <Button href="#tarif" size="md">Obtenir mon accès</Button>
+            )}
             <Button href="#correcteur-ia" variant="secondary" size="md">Voir comment ça marche</Button>
           </div>
           <p className="hero__note hero__enter" style={{ "--enter-delay": "320ms" }}>

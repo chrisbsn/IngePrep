@@ -3,7 +3,8 @@ import { Link } from "react-router-dom"
 import Header from "../components/layout/Header"
 import Footer from "../components/layout/Footer"
 import Container from "../components/ui/Container"
-import { annales, annaleLabel } from "../data/annales"
+import { annales, annalesRecentes, annaleLabel } from "../data/annales"
+import { useCompteSimule } from "../hooks/useCompteSimule"
 import "./AnnalesESA.css"
 
 const FILTERS = [
@@ -13,12 +14,17 @@ const FILTERS = [
 ]
 
 export default function AnnalesESA() {
+  const { connecte } = useCompteSimule()
   const [filter, setFilter] = useState("toutes")
 
+  // Non connecté : seules les sessions récentes (2023-2025) sont accessibles.
+  // Connecté : l'intégralité du corpus, sans distinction.
+  const base = connecte ? annales : annalesRecentes
+
   const visible = useMemo(() => {
-    if (filter === "toutes") return annales
-    return annales.filter((annale) => annale.session === filter)
-  }, [filter])
+    if (filter === "toutes") return base
+    return base.filter((annale) => annale.session === filter)
+  }, [base, filter])
 
   return (
     <>
@@ -69,6 +75,22 @@ export default function AnnalesESA() {
               </li>
             ))}
           </ul>
+
+          {!connecte && (
+            <div className="annales-page__locked">
+              <span className="annales-page__locked-icon" aria-hidden="true">🔒</span>
+              <div className="annales-page__locked-body">
+                <h2>Les années 2009 à 2022 sont réservées aux membres</h2>
+                <p>
+                  Crée ton compte pour débloquer l'intégralité des annales — toutes les sessions de
+                  2009 à 2022, en plus des plus récentes déjà accessibles ici.
+                </p>
+              </div>
+              <Link to="/inscription" className="btn btn--primary btn--md annales-page__locked-cta">
+                Voir toutes les années précédentes →
+              </Link>
+            </div>
+          )}
         </Container>
       </main>
       <Footer />

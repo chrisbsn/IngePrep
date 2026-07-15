@@ -2,12 +2,13 @@ import { Link } from "react-router-dom"
 import Container from "../ui/Container"
 import SectionTitle from "../ui/SectionTitle"
 import Reveal from "../ui/Reveal"
-import { annales, annaleLabel } from "../../data/annales"
+import { annalesRecentes, annaleLabel } from "../../data/annales"
+import { useCompteSimule } from "../../hooks/useCompteSimule"
 import "./Credibility.css"
 
-// Aperçu : les sessions les plus récentes seulement. La banque complète
-// (34 PDF, 2009-2025, filtrable par session) vit sur sa propre page /annales.
-const APERCU = annales.slice(0, 6)
+// Aperçu libre : les sessions les plus récentes (2023-2025). Les années
+// antérieures sont accessibles via /annales, derrière la création de compte.
+const APERCU = annalesRecentes
 
 const PROOFS = [
   {
@@ -31,6 +32,8 @@ const PROOFS = [
 ]
 
 export default function Credibility() {
+  const { connecte } = useCompteSimule()
+
   return (
     <section className="credibility" id="methode">
       <Container>
@@ -79,9 +82,15 @@ export default function Credibility() {
           </ul>
 
           <div className="credibility__voir-tout">
-            <Link to="/annales" className="credibility__voir-tout-lien">
-              Voir toutes les ESA des années précédentes (2009–2025) →
-            </Link>
+            {connecte ? (
+              <Link to="/annales" className="credibility__voir-tout-lien">
+                Voir toutes les annales (2009–2025) →
+              </Link>
+            ) : (
+              <Link to="/inscription" className="credibility__voir-tout-lien">
+                Voir toutes les années précédentes →
+              </Link>
+            )}
           </div>
         </div>
       </Container>

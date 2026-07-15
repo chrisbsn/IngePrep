@@ -1,8 +1,8 @@
 import { useRef, useState } from "react"
 import { Link, useParams } from "react-router-dom"
-import Logo from "../components/ui/Logo"
 import Button from "../components/ui/Button"
 import ClavierMath from "../components/app/ClavierMath"
+import Paywall from "../components/app/Paywall"
 import { getChapitre } from "../data/programme"
 import {
   theorieDerivees,
@@ -10,9 +10,8 @@ import {
   SCENARIOS,
   detecterMecanismeRecurrent,
 } from "../data/chapitre-derivees"
-import { useEssaisGratuits, MAX_ESSAIS_GRATUITS } from "../hooks/useEssaisGratuits"
+import { useEssaisGratuits } from "../hooks/useEssaisGratuits"
 import { useProgression } from "../hooks/useProgression"
-import { useCompteSimule } from "../hooks/useCompteSimule"
 import "./Chapitre.css"
 
 const IS_DEV = import.meta.env.DEV
@@ -23,29 +22,6 @@ const ONGLETS = [
   { id: "exercices", label: "Exercices" },
   { id: "video", label: "Vidéo", aVenir: true },
 ]
-
-function EnTete({ matiere }) {
-  const { connecte } = useCompteSimule()
-
-  return (
-    <header className="app-header">
-      <Link to="/" className="app-header__logo">
-        <Logo size={28} />
-        IngePrep
-      </Link>
-      <nav className="chapitre-header-nav">
-        <Link to="/app" className="app-header__home-link">← Programme</Link>
-        <Link
-          to={connecte ? "/tableau-de-bord" : "/connexion"}
-          className="app-header__home-link"
-        >
-          {connecte ? "Mon tableau de bord" : "Se connecter"}
-        </Link>
-        {matiere && <span className="chapitre-header-matiere">{matiere.label}</span>}
-      </nav>
-    </header>
-  )
-}
 
 function EtatAVenir({ quoi }) {
   return (
@@ -67,16 +43,16 @@ export default function Chapitre() {
   // { [exerciceId]: { demarche, reponse, diagnostic, scenario } }
   const [soumissions, setSoumissions] = useState({})
   const [historiqueScenarios, setHistoriqueScenarios] = useState([])
+  // Le paywall n'apparaît qu'au moment où l'élève tente une correction à zéro,
+  // pas de façon préventive : la navigation et le contenu restent accessibles.
+  const [paywallVisible, setPaywallVisible] = useState(false)
 
   if (!resultat) {
     return (
-      <div className="app-shell">
-        <EnTete matiere={null} />
-        <main className="chapitre-main">
-          <p>Chapitre introuvable.</p>
-          <Link to="/app">Retour au programme</Link>
-        </main>
-      </div>
+      <main className="chapitre-main">
+        <p>Chapitre introuvable.</p>
+        <Link to="/tableau-de-bord">Retour au tableau de bord</Link>
+      </main>
     )
   }
 
@@ -85,7 +61,12 @@ export default function Chapitre() {
   const mecanisme = detecterMecanismeRecurrent(historiqueScenarios)
 
   function soumettre(exercice, demarche, reponseFinale) {
-    if (essais.epuise) return
+    // Quota épuisé : on affiche le paywall en pleine séance, ici, au lieu de
+    // délivrer une correction. La navigation et le contenu restent accessibles.
+    if (essais.epuise) {
+      setPaywallVisible(true)
+      return
+    }
     // Le correcteur compare la démarche libre aux étapes de référence (exercice.etapes).
     // Ici, la comparaison est simulée par le scénario choisi dans l'outil de test.
     const diagnostic = exercice.diagnostics[scenarioChoisi]
@@ -113,14 +94,9 @@ export default function Chapitre() {
   }
 
   return (
-    <div className="app-shell">
-      <EnTete matiere={matiere} />
-
       <main className="chapitre-main">
         <nav className="chapitre-fil" aria-label="Fil d'Ariane">
-          <Link to="/app">Programme</Link>
-          <span aria-hidden="true">›</span>
-          <span>{matiere.label}</span>
+          <Link to={`/app/matiere/${matiere.id}`}>{matiere.label}</Link>
           <span aria-hidden="true">›</span>
           <strong>{chapitre.titre}</strong>
         </nav>
@@ -206,16 +182,12 @@ export default function Chapitre() {
               <EtatAVenir quoi="Les exercices de ce chapitre, tirés de la banque d'annales, sont en préparation." />
             ) : (
               <>
-                {/* Compteur d'essais gratuits (simulation) */}
-                <div className="chapitre-essais" role="status">
-                  <span>
-                    Corrections gratuites : <strong>{essais.restants}</strong> /{" "}
-                    {MAX_ESSAIS_GRATUITS} restantes
-                  </span>
-                  <span className="chapitre-essais-note">
-                    Simulation locale provisoire — sera remplacée par une vraie logique de compte.
-                  </span>
-                </div>
+                {/* Paywall déclenché en pleine séance à la soumission (quota atteint) */}
+                {paywallVisible && (
+                  <div className="chapitre-paywall-inline">
+                    <Paywall />
+                  </div>
+                )}
 
                 {/* Outil de test interne (dev uniquement) */}
                 {IS_DEV && (
@@ -267,39 +239,24 @@ export default function Chapitre() {
                   </div>
                 )}
 
-                {essais.epuise ? (
-                  <section className="chapitre-paywall">
-                    <h2>Tu as utilisé tes {MAX_ESSAIS_GRATUITS} corrections gratuites</h2>
-                    <p>
-                      Pour continuer à recevoir des diagnostics détaillés sur chaque exercice,
-                      débloque l'accès complet — corrections illimitées jusqu'à ton examen.
-                    </p>
-                    <Button href="/#tarif" size="md">Voir l'offre — 79 €</Button>
-                    <p className="chapitre-paywall-note">
-                      Écran simulé : ce compteur est stocké localement dans ton navigateur, à
-                      titre provisoire. La vraie logique (compte + paiement vérifié côté serveur)
-                      le remplacera.
-                    </p>
-                  </section>
-                ) : (
-                  <div className="chapitre-exercices">
-                    <h2>Exercices</h2>
-                    <p className="chapitre-exercices-intro">
-                      Rédige ta démarche complète, librement, comme sur ta copie le jour de
-                      l'examen. Le correcteur la comparera ensuite à la méthode de référence.
-                    </p>
-                    {exercicesDerivees.map((exercice, index) => (
-                      <ExerciceCard
-                        key={exercice.id}
-                        exercice={exercice}
-                        numero={index + 1}
-                        soumission={soumissions[exercice.id]}
-                        onSoumettre={soumettre}
-                        desactive={essais.epuise}
-                      />
-                    ))}
-                  </div>
-                )}
+                {/* Les exercices restent toujours accessibles : seul l'envoi d'une
+                    correction est gaté par le quota (via soumettre). */}
+                <div className="chapitre-exercices">
+                  <h2>Exercices</h2>
+                  <p className="chapitre-exercices-intro">
+                    Rédige ta démarche complète, librement, comme sur ta copie le jour de
+                    l'examen. Le correcteur la comparera ensuite à la méthode de référence.
+                  </p>
+                  {exercicesDerivees.map((exercice, index) => (
+                    <ExerciceCard
+                      key={exercice.id}
+                      exercice={exercice}
+                      numero={index + 1}
+                      soumission={soumissions[exercice.id]}
+                      onSoumettre={soumettre}
+                    />
+                  ))}
+                </div>
               </>
             )}
           </section>
@@ -317,7 +274,6 @@ export default function Chapitre() {
           </section>
         )}
       </main>
-    </div>
   )
 }
 
@@ -328,7 +284,7 @@ export default function Chapitre() {
 // uniquement au correcteur, APRÈS soumission — il n'est jamais montré comme structure
 // de saisie, pour ne pas souffler à l'élève les étapes attendues.
 
-function ExerciceCard({ exercice, numero, soumission, onSoumettre, desactive }) {
+function ExerciceCard({ exercice, numero, soumission, onSoumettre, desactive = false }) {
   const [demarche, setDemarche] = useState("")
   const [reponseFinale, setReponseFinale] = useState("")
 

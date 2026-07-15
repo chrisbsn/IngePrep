@@ -67,7 +67,7 @@ export default function Differentiator() {
         </Reveal>
 
         <div className="differentiator__cta">
-          <Link to="/app" className="btn btn--primary btn--md">
+          <Link to="/app/chapitre/derivees" className="btn btn--primary btn--md">
             Essayer un exercice gratuit
           </Link>
         </div>

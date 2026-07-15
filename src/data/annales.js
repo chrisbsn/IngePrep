@@ -10,6 +10,12 @@ export const annales = YEARS.flatMap((year) => [
   { year, session: "septembre", file: `/annales/esa-${year}-septembre.pdf` },
 ])
 
+// Les sessions à partir de cette année restent en libre accès (sans compte).
+// Les années antérieures sont réservées aux utilisateurs connectés.
+export const RECENT_YEAR_MIN = 2023
+export const annalesRecentes = annales.filter((a) => a.year >= RECENT_YEAR_MIN)
+export const annalesAnciennes = annales.filter((a) => a.year < RECENT_YEAR_MIN)
+
 export function annaleLabel(annale) {
   return `ESA ${annale.year} — ${annale.session === "juillet" ? "Juillet" : "Septembre"}`
 }

@@ -1,6 +1,5 @@
 import { useMemo } from "react"
-import { Link, Navigate } from "react-router-dom"
-import Logo from "../components/ui/Logo"
+import { Link } from "react-router-dom"
 import { programme } from "../data/programme"
 import { SCENARIOS, detecterMecanismeRecurrent } from "../data/chapitre-derivees"
 import { useCompteSimule } from "../hooks/useCompteSimule"
@@ -15,7 +14,7 @@ const COULEUR_SCENARIO = {
 }
 
 export default function TableauDeBord() {
-  const { compte, connecte, deconnecter } = useCompteSimule()
+  const { compte } = useCompteSimule()
   const { soumissions, reinitialiser } = useProgression()
 
   const stats = useMemo(() => {
@@ -57,25 +56,8 @@ export default function TableauDeBord() {
     }
   }, [soumissions])
 
-  if (!connecte) return <Navigate to="/connexion" replace />
-
   return (
-    <div className="app-shell">
-      <header className="app-header">
-        <Link to="/" className="app-header__logo">
-          <Logo size={28} />
-          IngePrep
-        </Link>
-        <nav className="tdb-nav">
-          <Link to="/app" className="app-header__home-link">Programme</Link>
-          <span className="tdb-nav__compte">{compte.prenom}</span>
-          <button type="button" className="tdb-nav__deconnexion" onClick={deconnecter}>
-            Se déconnecter
-          </button>
-        </nav>
-      </header>
-
-      <main className="tdb">
+    <main className="tdb">
         <div className="tdb-banniere" role="note">
           <strong>⚠ Compte simulé — données locales provisoires.</strong> Ce tableau de bord lit
           la progression stockée dans ton navigateur, pas sur un serveur. Aucune
@@ -217,7 +199,6 @@ export default function TableauDeBord() {
             </button>
           </>
         )}
-      </main>
-    </div>
+    </main>
   )
 }

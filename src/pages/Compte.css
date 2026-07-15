@@ -1,0 +1,113 @@
+.compte {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.compte__titre {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+  color: var(--color-ink-900);
+  margin-bottom: 1.5rem;
+}
+
+.compte__banniere {
+  background: #fff7e6;
+  border: 1px solid #f0c36d;
+  border-left: 4px solid #e8a020;
+  color: #7a5a12;
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+.compte__carte {
+  background: var(--color-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.compte__carte h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-ink-900);
+  margin-bottom: 1rem;
+}
+
+.compte__infos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.compte__infos div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-cream-100);
+  padding-bottom: 0.8rem;
+}
+
+.compte__infos div:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.compte__infos dt {
+  color: var(--color-ink-muted);
+  font-size: 0.9rem;
+}
+
+.compte__infos dd {
+  color: var(--color-ink-900);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.compte__ligne {
+  color: var(--color-ink-900);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.compte__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.compte__bouton {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  background: none;
+  border: 1px solid var(--color-cream-200);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.compte__bouton:hover {
+  border-color: var(--color-coral-500);
+  color: var(--color-coral-600);
+}
+
+.compte__deconnexion {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-error-500);
+  background: none;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+}
+
+.compte__deconnexion:hover {
+  background: rgba(239, 68, 68, 0.06);
+}

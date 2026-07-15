@@ -140,3 +140,59 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Bloc verrouillé (années anciennes derrière compte) --- */
+
+.annales-page__locked {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding: 1.75rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-cream-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.annales-page__locked-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.annales-page__locked-body {
+  flex: 1;
+  min-width: 240px;
+}
+
+.annales-page__locked-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-ink-900);
+  margin-bottom: 0.4rem;
+}
+
+.annales-page__locked-body p {
+  color: var(--color-ink-muted);
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+.annales-page__locked-cta {
+  flex-shrink: 0;
+}
+
+@media (max-width: 560px) {
+  .annales-page__locked-cta {
+    width: 100%;
+  }
+}
+
+/* Variante annales rendue dans la coquille d'application (pas de fond plein écran). */
+.annales-page--dans-coquille {
+  padding: 2.5rem 1.75rem 4rem;
+  background: transparent;
+  min-height: 0;
+  max-width: 1000px;
+}

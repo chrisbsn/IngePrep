@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
-import Header from "../components/layout/Header"
 import Footer from "../components/layout/Footer"
 import Container from "../components/ui/Container"
+import Logo from "../components/ui/Logo"
 import "./GuideEsa.css"
 
 const FAQ_JSON_LD = {
@@ -46,7 +46,17 @@ const FAQ_JSON_LD = {
 export default function GuideEsa() {
   return (
     <>
-      <Header />
+      {/* Header minimaliste propre à cette page : pas de nav commerciale ni de
+          boutons de connexion/accès, seulement le logo (cliquable vers l'accueil)
+          et le fil d'Ariane plus bas. */}
+      <header className="guide-esa-header">
+        <Container className="guide-esa-header__inner">
+          <Link to="/" className="guide-esa-header__logo">
+            <Logo size={28} />
+            IngePrep
+          </Link>
+        </Container>
+      </header>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}

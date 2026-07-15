@@ -1,3 +1,32 @@
+/* --- Header minimaliste (page /guide-esa uniquement) --- */
+
+.guide-esa-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 251, 253, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-cream-200);
+}
+
+.guide-esa-header__inner {
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.guide-esa-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-ink-900);
+  text-decoration: none;
+}
+
 .guide-esa {
   padding: 2.5rem 0 5rem;
   background: var(--color-white);
@@ -39,13 +68,11 @@
   font-family: var(--font-display);
   font-size: clamp(1.9rem, 4vw, 2.7rem);
   color: var(--color-ink-900);
-  max-width: 760px;
   margin-bottom: 2.5rem;
   line-height: 1.25;
 }
 
 .guide-esa__article {
-  max-width: 720px;
   display: flex;
   flex-direction: column;
   gap: 2.25rem;

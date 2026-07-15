@@ -189,10 +189,28 @@
   }
 }
 
-/* Variante annales rendue dans la coquille d'application (pas de fond plein écran). */
+/* Variante annales rendue dans la coquille d'application (pas de fond plein écran).
+   Plus de largeur disponible qu'en public : on gagne des colonnes pour raccourcir
+   la page et limiter le besoin de défiler. */
 .annales-page--dans-coquille {
   padding: 2.5rem 1.75rem 4rem;
   background: transparent;
   min-height: 0;
-  max-width: 1000px;
+  max-width: 1280px;
+}
+
+.annales-page--dans-coquille .annales-page__grid {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+@media (max-width: 1100px) {
+  .annales-page--dans-coquille .annales-page__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .annales-page--dans-coquille .annales-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

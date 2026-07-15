@@ -1,24 +1,34 @@
+/* La coquille occupe exactement un écran et devient elle-même le conteneur de
+   défilement : la barre latérale garde une hauteur fixe (100%) et seule la
+   zone de contenu défile en interne. On évite ainsi de dépendre de
+   position: sticky, peu fiable ici car `html { overflow-x: hidden }` (dans
+   global.css, pour bloquer le débordement horizontal des formes décoratives
+   de la landing) transforme <html> en conteneur de scroll indépendant et
+   casse le calcul de sticky dans certains moteurs — avec une hauteur de
+   sidebar fixée à 100vh, le fond sombre s'arrêtait net dès qu'on défilait. */
 .app-shell-layout {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   background: #eef1ff;
 }
 
 /* --- Barre latérale --- */
 
 .app-shell__sidebar {
-  position: sticky;
-  top: 0;
-  align-self: flex-start;
-  height: 100vh;
   width: 250px;
   flex-shrink: 0;
+  height: 100%;
+  background: var(--color-ink-900);
+  color: var(--color-cream-100);
+}
+
+.app-shell__sidebar-inner {
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   padding: 1.5rem 1rem;
-  background: var(--color-ink-900);
-  color: var(--color-cream-100);
+  overflow-y: auto;
 }
 
 .app-shell__logo {
@@ -131,6 +141,8 @@
 .app-shell__contenu {
   flex: 1;
   min-width: 0;
+  height: 100%;
+  overflow-y: auto;
 }
 
 /* Les pages rendues dans la coquille ne portent plus leur propre fond plein écran. */
@@ -140,18 +152,30 @@
 }
 
 @media (max-width: 860px) {
+  /* Sous ce seuil, la sidebar horizontale n'a plus besoin d'occuper un écran
+     entier : on repasse en défilement de page normal (une seule colonne). */
   .app-shell-layout {
     flex-direction: column;
+    height: auto;
   }
 
   .app-shell__sidebar {
-    position: static;
-    height: auto;
     width: 100%;
+    height: auto;
+  }
+
+  .app-shell__sidebar-inner {
+    height: auto;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     gap: 0.3rem;
+    overflow-y: visible;
+  }
+
+  .app-shell__contenu {
+    height: auto;
+    overflow-y: visible;
   }
 
   .app-shell__logo {

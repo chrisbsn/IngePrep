@@ -219,7 +219,7 @@ export default function GuideEsa() {
               exercice en est une autre. C'est exactement ce que fait le correcteur IA
               d'IngePrep.
             </p>
-            <Link to="/#correcteur-ia" className="btn btn--primary btn--md">
+            <Link to="/" className="btn btn--primary btn--md">
               Découvrir le correcteur IA
             </Link>
           </div>

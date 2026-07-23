@@ -12,7 +12,7 @@ export default function Pricing() {
           align="center"
           eyebrow="Tarif"
           title="Un accès unique, pensé pour un budget d'étudiant"
-          description="Un seul paiement, pas d'abonnement. Et si la méthode ne te convient pas, tu es remboursé — sans justification."
+          description="Un seul paiement, pas d'abonnement. Et si la méthode ne te convient pas, tu es remboursé, sans justification."
         />
 
         <Reveal className="pricing__card">

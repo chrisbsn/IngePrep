@@ -10,14 +10,14 @@ export const faqItems = [
       "Tu as 14 jours après ton achat pour tester la plateforme. Si elle ne te convient pas, un simple email suffit : on te rembourse intégralement, sans justification à fournir ni formulaire à remplir.",
   },
   {
-    question: "Je vise l'UCLouvain, l'ULiège ou l'UMons — pas l'ULB. C'est adapté ?",
+    question: "Je vise l'UCLouvain, l'ULiège ou l'UMons, pas l'ULB. C'est adapté ?",
     answer:
       "Oui. Le programme de l'examen spécial d'admission est commun aux quatre facultés : mêmes matières, mêmes critères de réussite, et les jurys veillent à l'homogénéité des épreuves. Nos méthodes de référence et nos diagnostics valent indistinctement pour les quatre.",
   },
   {
     question: "J'ai raté une matière en juillet. Ça vaut la peine pour septembre ?",
     answer:
-      "C'est même le cas où le diagnostic par mécanisme est le plus utile : grâce aux dispenses, tu ne repasses que les matières échouées. En quelques semaines, il faut corriger précisément ce qui a lâché — pas tout réviser au hasard. Le correcteur identifie tes mécanismes d'erreur récurrents pour cibler ta préparation.",
+      "C'est même le cas où le diagnostic par mécanisme est le plus utile : grâce aux dispenses, tu ne repasses que les matières échouées. En quelques semaines, il faut corriger précisément ce qui a lâché, pas tout réviser au hasard. Le correcteur identifie tes mécanismes d'erreur récurrents pour cibler ta préparation.",
   },
   {
     question: "Et si je commence tôt, bien avant l'examen ?",

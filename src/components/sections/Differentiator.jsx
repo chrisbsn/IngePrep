@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import Container from "../ui/Container"
 import SectionTitle from "../ui/SectionTitle"
-import Reveal from "../ui/Reveal"
 import { useReveal } from "../../hooks/useReveal"
 import { useTypewriter } from "../../hooks/useTypewriter"
 import DemoCorrecteur from "./DemoCorrecteur"
@@ -9,15 +8,7 @@ import "./Differentiator.css"
 
 const NEUTRAL_TEXT = "\"Réponse incorrecte.\""
 const HIGHLIGHT_TEXT =
-  "\"À l'étape 1, tu poses x ≥ −2 mais tu oublies x ≥ 0 : une racine carrée ne peut pas égaler un nombre négatif. Tes calculs sont justes ensuite — c'est cette condition manquante qui laisse passer la solution parasite x = −1.\""
-
-const MECHANISMS = [
-  "Mauvaise interprétation de l'énoncé",
-  "Hypothèse implicite non justifiée",
-  "Théorème ou formule mal mobilisé",
-  "Erreur de calcul isolée dans un raisonnement juste",
-  "Confusion entre deux notions proches",
-]
+  "\"À l'étape 1, tu poses x ≥ −2 mais tu oublies x ≥ 0 : une racine carrée ne peut pas égaler un nombre négatif. Tes calculs sont justes ensuite : c'est cette condition manquante qui laisse passer la solution parasite x = −1.\""
 
 export default function Differentiator() {
   const [bubbleRef, bubbleVisible] = useReveal(0.4)
@@ -35,7 +26,7 @@ export default function Differentiator() {
         <SectionTitle
           eyebrow="Notre différence"
           title="Un correcteur qui diagnostique le raisonnement, pas seulement le résultat"
-          description="Notre IA compare ta démarche, étape par étape, à des méthodes de référence rédigées par des enseignants. Elle repère précisément où ta logique dévie et t'explique le mécanisme — pas juste le verdict."
+          description="Notre IA compare ta démarche, étape par étape, à des méthodes de référence rédigées par des enseignants. Elle repère précisément où ta logique dévie et t'explique le mécanisme, pas juste le verdict."
         />
 
         <div
@@ -56,15 +47,6 @@ export default function Differentiator() {
         </div>
 
         <DemoCorrecteur />
-
-        <Reveal className="differentiator__mechanisms" delay={150}>
-          <p className="differentiator__mechanisms-title">Exemples de mécanismes d'erreur identifiés :</p>
-          <ul className="differentiator__mechanisms-list">
-            {MECHANISMS.map((mechanism) => (
-              <li key={mechanism}>{mechanism}</li>
-            ))}
-          </ul>
-        </Reveal>
 
         <div className="differentiator__cta">
           <Link to="/app/chapitre/derivees" className="btn btn--primary btn--md">

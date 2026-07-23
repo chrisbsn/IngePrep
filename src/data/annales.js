@@ -17,5 +17,5 @@ export const annalesRecentes = annales.filter((a) => a.year >= RECENT_YEAR_MIN)
 export const annalesAnciennes = annales.filter((a) => a.year < RECENT_YEAR_MIN)
 
 export function annaleLabel(annale) {
-  return `ESA ${annale.year} — ${annale.session === "juillet" ? "Juillet" : "Septembre"}`
+  return `ESA ${annale.year} : ${annale.session === "juillet" ? "Juillet" : "Septembre"}`
 }

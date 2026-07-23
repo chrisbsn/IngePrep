@@ -21,7 +21,7 @@ export default function CheckoutBanner() {
     <div className={`checkout-banner ${isSuccess ? "checkout-banner--success" : "checkout-banner--cancelled"}`}>
       <span>
         {isSuccess
-          ? "Paiement test réussi — le circuit Stripe fonctionne. (Mode test, aucun montant réel débité.)"
+          ? "Paiement test réussi : le circuit Stripe fonctionne. (Mode test, aucun montant réel débité.)"
           : "Paiement annulé."}
       </span>
       <button type="button" onClick={() => setStatus(null)} aria-label="Fermer">

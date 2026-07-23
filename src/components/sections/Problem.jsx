@@ -17,7 +17,7 @@ const POINTS = [
   {
     title: "Erreur de concept ?",
     description:
-      "Ou encore, tu appliques une formule sans avoir vraiment saisi la notion derrière. C'est l'erreur la plus coûteuse — et celle qu'aucun corrigé type ne détecte.",
+      "Ou encore, tu appliques une formule sans avoir vraiment saisi la notion derrière. C'est l'erreur la plus coûteuse, et celle qu'aucun corrigé type ne détecte.",
   },
 ]
 
@@ -28,7 +28,7 @@ export default function Problem() {
         <SectionTitle
           eyebrow="Le problème"
           title="Tu refais un exercice, tu compares au corrigé, ta réponse est fausse. Et maintenant ?"
-          description="Le corrigé statique te montre que tu t'es trompé — jamais pourquoi. Tant que tu ne sais pas si c'est la méthode, le calcul ou le concept qui a lâché, tu retravailles au hasard et tu répètes la même faute d'un examen blanc à l'autre."
+          description="Le corrigé statique te montre que tu t'es trompé, jamais pourquoi. Tant que tu ne sais pas si c'est la méthode, le calcul ou le concept qui a lâché, tu retravailles au hasard et tu répètes la même faute d'un examen blanc à l'autre."
         />
         <div className="problem__grid">
           {POINTS.map((point, index) => (

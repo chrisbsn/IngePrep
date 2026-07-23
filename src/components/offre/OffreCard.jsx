@@ -32,12 +32,12 @@ export default function OffreCard() {
 
   return (
     <>
-      <span className="pricing__badge">Mode test — aucun montant réel débité</span>
+      <span className="pricing__badge">Mode test : aucun montant réel débité</span>
       <div className="pricing__price">
         <span className="pricing__price-anchor" aria-hidden="true">129 €</span>
         <span className="pricing__price-value">79 €</span>
         <span className="pricing__price-note">
-          Prix de lancement pour les 100 premiers utilisateurs — 129 € ensuite
+          Prix de lancement pour les 100 premiers utilisateurs, 129 € ensuite
         </span>
       </div>
 
@@ -68,7 +68,7 @@ export default function OffreCard() {
         onClick={handleCheckout}
         disabled={status === "loading"}
       >
-        {status === "loading" ? "Redirection vers Stripe..." : "Obtenir mon accès — 79 €"}
+        {status === "loading" ? "Redirection vers Stripe..." : "Obtenir mon accès pour 79 €"}
       </Button>
       {status === "error" && <p className="pricing__error">{errorMessage}</p>}
       <p className="pricing__note">

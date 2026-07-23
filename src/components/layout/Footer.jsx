@@ -22,10 +22,10 @@ export default function Footer() {
         <div className="footer__col">
           <h3>Écoles couvertes</h3>
           <ul>
-            <li>UCLouvain — École Polytechnique</li>
-            <li>ULB — École polytechnique</li>
-            <li>ULiège — Faculté des Sciences appliquées</li>
-            <li>UMons — Faculté Polytechnique</li>
+            <li>UCLouvain : École Polytechnique</li>
+            <li>ULB : École polytechnique</li>
+            <li>ULiège : Faculté des Sciences appliquées</li>
+            <li>UMons : Faculté Polytechnique</li>
           </ul>
         </div>
 

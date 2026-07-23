@@ -15,7 +15,7 @@ const PROOFS = [
     value: "379",
     label: "questions analysées",
     description:
-      "Chaque question des annales est classée par matière et par fréquence d'apparition — on sait exactement ce qui tombe, et à quel rythme.",
+      "Chaque question des annales est classée par matière et par fréquence d'apparition : on sait exactement ce qui tombe, et à quel rythme.",
   },
   {
     value: "16 ans",
@@ -56,7 +56,7 @@ export default function Credibility() {
         <div className="credibility__bank" id="annales">
           <div className="credibility__bank-head">
             <div>
-              <h3>La banque d'annales — en libre accès</h3>
+              <h3>La banque d'annales, en libre accès</h3>
               <p>
                 Les sujets officiels de l'examen spécial d'admission, au format PDF d'origine.
                 Entraîne-toi sur les vrais énoncés, pas sur des reconstitutions.

@@ -42,7 +42,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.25rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem;
 }
 
 .differentiator__bubble {
@@ -107,35 +107,6 @@
   .differentiator__cursor {
     display: none;
   }
-}
-
-.differentiator__mechanisms {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-md);
-  padding: 1.6rem 1.8rem;
-}
-
-.differentiator__mechanisms-title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--color-white);
-}
-
-.differentiator__mechanisms-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-}
-
-.differentiator__mechanisms-list li {
-  font-size: 0.85rem;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (max-width: 720px) {

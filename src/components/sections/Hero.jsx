@@ -6,7 +6,7 @@ import { useCompteSimule } from "../../hooks/useCompteSimule"
 import "./Hero.css"
 
 const DIAGNOSTIC_TEXT =
-  "Condition x ≥ 0 omise — une racine carrée ne peut pas égaler un nombre négatif. C'est ce qui laisse passer la solution parasite jusqu'à la conclusion."
+  "Condition x ≥ 0 omise : une racine carrée ne peut pas égaler un nombre négatif. C'est ce qui laisse passer la solution parasite jusqu'à la conclusion."
 
 export default function Hero() {
   const diagnostic = useTypewriter(DIAGNOSTIC_TEXT, { speed: 14, startDelay: 900 })
@@ -19,16 +19,16 @@ export default function Hero() {
       <Container className="hero__inner">
         <div className="hero__content">
           <span className="hero__badge hero__enter" style={{ "--enter-delay": "0ms" }}>
-            Prépa ESA — UCLouvain · ULB · ULiège · UMons
+            Prépa ESA : UCLouvain · ULB · ULiège · UMons
           </span>
           <h1 className="hero__title hero__enter" style={{ "--enter-delay": "90ms" }}>
-            Tu t'es trompé ? On ne te dit pas juste où — on te dit{" "}
+            Tu t'es trompé ? On ne te dit pas juste où, on te dit{" "}
             <span className="hero__title-accent">pourquoi</span> ton raisonnement a coincé.
           </h1>
           <p className="hero__subtitle hero__enter" style={{ "--enter-delay": "180ms" }}>
             IngePrep analyse ta démarche étape par étape sur les exercices de l'examen d'admission
             ingénieur civil (UCLouvain, ULB, ULiège, UMons) et nomme le mécanisme précis qui te fait
-            perdre des points — pour que tu t'entraînes sur ce qui compte vraiment.
+            perdre des points, pour que tu t'entraînes sur ce qui compte vraiment.
           </p>
           <div className="hero__actions hero__enter" style={{ "--enter-delay": "260ms" }}>
             {connecte ? (
@@ -49,7 +49,7 @@ export default function Hero() {
           <div className="hero__card">
             <div className="hero__card-row hero__card-row--wrong">
               <span className="hero__card-label">Étape 1</span>
-              <span>√(x + 2) = x — condition d'existence : x ≥ −2</span>
+              <span>√(x + 2) = x (condition d'existence : x ≥ −2)</span>
             </div>
             <div className="hero__card-diagnostic">
               <span className="hero__card-diagnostic-icon">◆</span>

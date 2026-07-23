@@ -10,7 +10,7 @@ const STEPS = [
     label: "Étape 1",
     content: "Condition d'existence : x + 2 ≥ 0, donc x ≥ −2",
     status: "faulty",
-    verdictTitle: "Mécanisme identifié — condition implicite oubliée",
+    verdictTitle: "Mécanisme identifié : condition implicite oubliée",
     verdict:
       "Une racine carrée est toujours positive ou nulle : il fallait aussi imposer x ≥ 0. Cette condition manquante laissera passer une solution parasite jusqu'à la conclusion.",
   },
@@ -21,7 +21,7 @@ const STEPS = [
     status: "ok",
     verdictTitle: "Étape validée",
     verdict:
-      "L'élévation au carré est correcte. Attention : elle n'est pas réversible — c'est précisément pour ça que les conditions de l'étape 1 devaient être complètes.",
+      "L'élévation au carré est correcte. Attention : elle n'est pas réversible. C'est précisément pour ça que les conditions de l'étape 1 devaient être complètes.",
   },
   {
     id: 3,
@@ -36,9 +36,9 @@ const STEPS = [
     label: "Étape 4",
     content: "Conclusion : S = {−1 ; 2}",
     status: "consequence",
-    verdictTitle: "Réponse fausse — mais l'erreur n'est pas ici",
+    verdictTitle: "Réponse fausse, mais l'erreur n'est pas ici",
     verdict:
-      "x = −1 donne √(x + 2) = 1 ≠ −1 : c'est une solution parasite. L'erreur se propage depuis l'étape 1 — sans la condition x ≥ 0, rien ne l'éliminait. La bonne réponse : S = {2}.",
+      "x = −1 donne √(x + 2) = 1 ≠ −1 : c'est une solution parasite. L'erreur se propage depuis l'étape 1 : sans la condition x ≥ 0, rien ne l'éliminait. La bonne réponse : S = {2}.",
   },
 ]
 
@@ -67,7 +67,7 @@ export default function DemoCorrecteur() {
         <p className="demo-correcteur__intro-title">Essaie par toi-même</p>
         <p className="demo-correcteur__intro-text">
           Voici la copie d'un étudiant sur une question type ESA. Sa réponse finale est fausse.
-          Clique sur chaque étape pour voir le diagnostic de l'IA — et repérer où le raisonnement casse vraiment.
+          Clique sur chaque étape pour voir le diagnostic de l'IA, et repérer où le raisonnement casse vraiment.
         </p>
       </div>
 

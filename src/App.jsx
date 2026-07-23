@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom"
+﻿import { Routes, Route, Navigate } from "react-router-dom"
 import Landing from "./pages/Landing"
 import AnnalesESA from "./pages/AnnalesESA"
 import GuideEsa from "./pages/GuideEsa"
@@ -10,6 +10,7 @@ import TableauDeBord from "./pages/TableauDeBord"
 import Matiere from "./pages/Matiere"
 import AnnalesApp from "./pages/AnnalesApp"
 import Compte from "./pages/Compte"
+import TestConnexion from "./lib/../pages/TestConnexion"
 import AppShell from "./components/app/AppShell"
 import { useSmoothAnchorScroll } from "./hooks/useSmoothAnchorScroll"
 import { useScrollToTop } from "./hooks/useScrollToTop"
@@ -26,6 +27,7 @@ export default function App() {
       <Route path="/guide-esa" element={<GuideEsa />} />
       <Route path="/connexion" element={<Connexion />} />
       <Route path="/inscription" element={<Inscription />} />
+      <Route path="/test-connexion" element={<TestConnexion />} />
 
       {/* Coquille d'application (vues connectées) */}
       <Route element={<AppShell />}>
@@ -42,3 +44,4 @@ export default function App() {
     </Routes>
   )
 }
+
